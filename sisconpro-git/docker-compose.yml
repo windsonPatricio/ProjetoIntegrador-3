@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    image: nexus.devops.ifrn.edu.br/{{ repository|lower }}:latest
+    volumes:
+      - web_tmp:/tmp
+      - "{{ configDir }}/application.yml:/home/springboot/application.yml:ro"
+    ports:
+      - "{{ port }}:8080"
+    restart: always
+    environment:
+      LANG: "C.UTF-8"
+      TZ: "America/Recife"
+      JAVA_OPTS: -server -Xmx128m -XX:MaxMetaspaceSize=96m -XX:CompressedClassSpaceSize=64m -XX:ReservedCodeCacheSize=64m -Xss512k -Dspring.config.additional-location=file:/home/springboot/
+volumes:
+  #db_data:
+  web_tmp:

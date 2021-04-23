@@ -1,0 +1,44 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.ifrn'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'org.assertj:assertj-core:3.19.0'
+	annotationProcessor 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile "com.querydsl:querydsl-core:4.2.2"
+	compile 'com.querydsl:querydsl-jpa:4.2.2'
+	annotationProcessor 'com.querydsl:querydsl-apt:4.2.2:jpa'
+
+
+
+}
+
+test {
+	useJUnitPlatform()
+}
