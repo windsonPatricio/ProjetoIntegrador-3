@@ -106,7 +106,9 @@
                         <td>Biblioteca</td>
                         <td th:text="${proto.dataEnvio}"></td>
                         <td>
-                            <a href="#" class="btn btn-green"><i class="bg-success"></i> Recebido</a>
+                            <span th:if="${proto.status == 1}"><a href="#" class="btn btn-green"><i class="bg-success"></i> Recebido</a></span>
+                            <span th:if="${proto.status == 2}"><a href="#" class="btn btn-blue"><i class="bg-success"></i> Enviado</a></span>
+                            <span th:if="${proto.status == 3}"><a href="#" class="btn btn-red"><i class="bg-success"></i> Cancelado</a></span>
                         </td>
                     </tr>
 
