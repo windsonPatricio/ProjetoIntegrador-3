@@ -69,8 +69,8 @@ public class Contrato{
     private Date dataInicioVigencia;
 
     @Column(name = "dataFimlVigencia")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private LocalDate dataFimVigencia;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private Date dataFimVigencia;
 
     @Column(name = "arquivo")
     private File arquivo;

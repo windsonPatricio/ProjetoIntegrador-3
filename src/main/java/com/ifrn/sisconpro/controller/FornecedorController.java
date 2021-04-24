@@ -1,6 +1,7 @@
 package com.ifrn.sisconpro.controller;
 
 
+import com.ifrn.sisconpro.model.Contrato;
 import com.ifrn.sisconpro.model.Fornecedor;
 import com.ifrn.sisconpro.repository.FornecerdorRepository;
 import com.ifrn.sisconpro.service.serviceImple.ContratoServiceImple;
@@ -49,6 +50,13 @@ public class FornecedorController {
         return "redirect:/fornecedores";
     }
 
+    @RequestMapping(value = "/fornecedores/..{id}", method = RequestMethod.GET)
+    public ModelAndView exibirFornecedor(@PathVariable("id") long id){
+        ModelAndView mav = new ModelAndView("detalhes-fornecedores");
+        Fornecedor fornecedor = service.findById(id);
+        mav.addObject("fornecedor", fornecedor);
+        return mav;
+    }
 
 
 }

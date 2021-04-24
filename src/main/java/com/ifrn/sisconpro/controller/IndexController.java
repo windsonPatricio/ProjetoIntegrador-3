@@ -34,13 +34,13 @@ public class IndexController {
         ModelAndView mv = new ModelAndView("index");
         List<Contrato> contrato = service.findAll();
         List<Protocolos> protocolos = servico.findAll();
-        List<Contrato> listaCtr = (List<Contrato>)service.listarContratoProximoVencimento();
+       // List<Contrato> listaCtr = (List<Contrato>)service.listarContratoProximoVencimento();
         List<Contrato> listaConf = (List<Contrato>)service.contarContratosConfirmados();
         List<Protocolos> listaRec = (List<Protocolos>)servico.contarProtocolosRecebidos();
         List<Protocolos> listaEnv = (List<Protocolos>)servico.contarProtocolosEnviados();
         mv.addObject("listaRec", listaRec.size());
         mv.addObject("listaEnv", listaEnv.size());
-        mv.addObject("listaCtr", listaCtr.size()); 
+       // mv.addObject("listaCtr", listaCtr.size());
         mv.addObject("listaConf", listaConf.size());
         mv.addObject("protocolo", protocolos);
         mv.addObject("contratoVenc", contrato);

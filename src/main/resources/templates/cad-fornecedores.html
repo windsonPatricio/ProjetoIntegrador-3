@@ -55,7 +55,7 @@
                           <form action="#" class="inline-form" method="post">
                             <div class="group">
                                   <label for="#">Código</label>
-                                  <input type="text" name="" id="" onkeypress="$(this).mask('0000.00-00')" placeholder="Código do departamento">
+                                  <input type="text" name="codigo" id="inputCodigo" th:value="${fornecedor.codigo}"onkeypress="$(this).mask('0000.00-00')" placeholder="Código do departamento">
                             </div>
                             <div class="group">
                                 <label for="#">CNPJ</label>

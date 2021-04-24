@@ -26,6 +26,9 @@ public class Fornecedor {
     @Column(name = "id", nullable = false)
     private long id;
 
+    @Column(name = "codigo", nullable = false)
+    private String codigo;
+
     @Column(name = "cnpj", nullable = false)
     private String cnpj;
 

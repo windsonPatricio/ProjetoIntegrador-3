@@ -46,12 +46,12 @@ public class ContratoServiceImple implements ContratoService {
     public void deleteById(Long id) { repository.deleteById(id); }
 
 
-    @Override
-    public Iterable<Contrato> listarContratoProximoVencimento() {
-        QContrato qContrato = QContrato.contrato;
-        BooleanExpression contrProxVenc = qContrato.dataFimVigencia.goe(LocalDate.now());
-               return repository.findAll(contrProxVenc);
-    }
+    //@Override
+   // public Iterable<Contrato> listarContratoProximoVencimento() {
+      //  QContrato qContrato = QContrato.contrato;
+      //  BooleanExpression contrProxVenc = qContrato.dataFimVigencia.goe(LocalDate.now());
+       //        return repository.findAll(contrProxVenc);
+  //  }
 
     @Override
     public Iterable<Contrato> contarContratosConfirmados(){
