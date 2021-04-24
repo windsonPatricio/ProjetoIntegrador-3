@@ -18,8 +18,8 @@
     <nav class="topnav">
         <div class="logo">
             <img src="img/logo.png" alt="logo">
-            <a href="#" class="display-sm display-md" id="menu"><i class="fa fa-list-ul"></i></a>
-            <a href="index.html" class="hidden-sm"></a>
+            <a href="#"><i class="fa fa-user"></i> [[${#httpServletRequest.remoteUser}]]</a>
+            <a th:href="@{/logout}"><i class="fa fa-power-off"></i></a>
         </div>
         <div class="user">
             <div style="float: right;">

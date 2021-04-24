@@ -58,7 +58,7 @@ public class Protocolos {
     private File arquivo;
 
     @Column(name = "Status")
-    private int status;
+    private String status;
 
 
 }

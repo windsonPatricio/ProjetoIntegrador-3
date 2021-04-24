@@ -42,6 +42,7 @@ public class ProtocoloController {
 //    }
    @PostMapping("/cad-protocolo")
     public String salvarProtocolo(Protocolos protocolo) {
+        //protocolo.setStatus(Integer.parseInt(1));
         service.save(protocolo); // Cadastra e atualiza
         return "redirect:/protocolos";
     }

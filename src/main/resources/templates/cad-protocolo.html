@@ -23,8 +23,8 @@
     </div>
     <div class="user">
         <div style="float: right;">
-            <a href="#"><i class="fa fa-user"></i> Kézia</a>
-            <a href="#"><i class="fa fa-power-off"></i></a>
+            <a href="#"><i class="fa fa-user"></i> [[${#httpServletRequest.remoteUser}]]</a>
+            <a th:href="@{/logout}"><i class="fa fa-power-off"></i></a>
         </div>
     </div>
 </nav>
@@ -110,7 +110,7 @@
                                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                 </div>
                                 <div class="group">
-                                    <input type="hidden" name="status" id="status" th:value="${protocolos.status.setStatus(1)}" placeholder="date">
+                                    <input type="hidden" name="status" id="status" th:value="@{2}" placeholder="date">
                                 </div>
 
                                 <div class="group-btn">

@@ -27,8 +27,8 @@
                 <i class="fa fa-search"></i>
             </form>
             <div>
-                <a href="#"><i class="fa fa-user"></i> Kézia</a>
-                <a href="#"><i class="fa fa-power-off"></i></a>
+                <a href="#"><i class="fa fa-user"></i> [[${#httpServletRequest.remoteUser}]]</a>
+                <a th:href="@{/logout}"><i class="fa fa-power-off"></i></a>
             </div>
         </div>
     </nav>
@@ -106,81 +106,13 @@
                         <td>Biblioteca</td>
                         <td th:text="${proto.dataEnvio}"></td>
                         <td>
-                            <span th:if="${proto.status == 1}"><a href="#" class="btn btn-green"><i class="bg-success"></i> Recebido</a></span>
-                            <span th:if="${proto.status == 2}"><a href="#" class="btn btn-blue"><i class="bg-success"></i> Enviado</a></span>
-                            <span th:if="${proto.status == 3}"><a href="#" class="btn btn-red"><i class="bg-success"></i> Cancelado</a></span>
+                            <span th:if="${proto.status == '1'}"><a href="#" class="btn btn-green"><i class="bg-success"></i> Recebido</a></span>
+                            <span th:if="${proto.status == '2'}"><a href="#" class="btn btn-orange"><i class="bg-success"></i> Aguardando</a></span>
+                            <span th:if="${proto.status == '3'}"><a href="#" class="btn btn-red"><i class="bg-success"></i> Cancelado</a></span>
                         </td>
                     </tr>
 
-<!--                    <tr>-->
-<!--                        <td>000002</td>-->
-<!--                        <td>Secretária</td>-->
-<!--                        <td>Biblioteca</td>-->
-<!--                        <td>20/02/2021</td>-->
-<!--                        <td>-->
-<!--                            <a href="#" class="btn btn-blue"><i class="bg-success"></i> Enviado</a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
 
-<!--                    <tr>-->
-<!--                        <td>000003</td>-->
-<!--                        <td>Secretária</td>-->
-<!--                        <td>Biblioteca</td>-->
-<!--                        <td>20/02/2021</td>-->
-<!--                        <td>-->
-<!--                            <a href="#" class="btn btn-red"><i class="bg-success"></i> Cancelado</a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-
-<!--                    <tr>-->
-<!--                        <td>000004</td>-->
-<!--                        <td>Secretária</td>-->
-<!--                        <td>Biblioteca</td>-->
-<!--                        <td>20/02/2021</td>-->
-<!--                        <td>-->
-<!--                            <a href="#" class="btn btn-blue"><i class="bg-success"></i> Enviado</a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-<!--                   -->
-<!--                    <tr>-->
-<!--                        <td>000005</td>-->
-<!--                        <td>Secretária</td>-->
-<!--                        <td>Biblioteca</td>-->
-<!--                        <td>20/02/2021</td>-->
-<!--                        <td>-->
-<!--                            <a href="#" class="btn btn-green"><i class="bg-success"></i> Recebido</a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-
-<!--                    <tr>-->
-<!--                        <td>000006</td>-->
-<!--                        <td>Secretária</td>-->
-<!--                        <td>Biblioteca</td>-->
-<!--                        <td>20/02/2021</td>-->
-<!--                        <td>-->
-<!--                            <a href="#" class="btn btn-blue"><i class="bg-success"></i> Enviado</a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-
-<!--                    <tr>-->
-<!--                        <td>000007</td>-->
-<!--                        <td>Secretária</td>-->
-<!--                        <td>Biblioteca</td>-->
-<!--                        <td>20/02/2021</td>-->
-<!--                        <td>-->
-<!--                            <a href="#" class="btn btn-red"><i class="bg-success"></i> Cancelado</a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-
-<!--                    <tr>-->
-<!--                        <td>000008</td>-->
-<!--                        <td>Secretária</td>-->
-<!--                        <td>Biblioteca</td>-->
-<!--                        <td>20/02/2021</td>-->
-<!--                        <td>-->
-<!--                            <a href="#" class="btn btn-blue"><i class="bg-success"></i> Enviado</a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
                 </table>
               </div>
           </div>
@@ -199,27 +131,6 @@
                       <th>Data</th>
                       <th>Status</th>
                   </tr>
-               
-
-<!--                  <tr>-->
-<!--                      <td>000006</td>-->
-<!--                      <td>Secretária</td>-->
-<!--                      <td>Biblioteca</td>-->
-<!--                      <td>20/02/2021</td>-->
-<!--                      <td>-->
-<!--                        <a href="#" class="btn btn-green"><i class="bg-success"></i> Confirmados</a>-->
-<!--                    </td>-->
-<!--                  </tr>-->
-
-<!--                  <tr>-->
-<!--                      <td>000007</td>-->
-<!--                      <td>Secretária</td>-->
-<!--                      <td>Biblioteca</td>-->
-<!--                      <td>20/02/2021</td>-->
-<!--                      <td>-->
-<!--                        <a href="#" class="btn btn-red"><i class="bg-success"></i> Vencidos</a>-->
-<!--                    </td>-->
-<!--                  </tr>-->
 
                   <tr th:each="contrato : ${contratoVenc}">
                       <td th:text="${contrato.numero}"></td>
