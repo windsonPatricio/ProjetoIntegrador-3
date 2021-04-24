@@ -54,7 +54,7 @@ public class Protocolos {
     @Column(name = "assuntoDetalhes", nullable = false)
     private String assuntoDetalhes;
 
-    @Column(name = "arquivo", nullable = false)
+    @Column(name = "arquivo")
     private File arquivo;
 
     @Column(name = "Status")

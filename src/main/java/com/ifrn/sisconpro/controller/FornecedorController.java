@@ -53,8 +53,8 @@ public class FornecedorController {
     @RequestMapping(value = "/fornecedores/..{id}", method = RequestMethod.GET)
     public ModelAndView exibirFornecedor(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView("detalhes-fornecedores");
-        Fornecedor fornecedor = service.findById(id);
-        mav.addObject("fornecedor", fornecedor);
+        Fornecedor fornecedores = service.findById(id);
+        mav.addObject("fornecedor", fornecedores);
         return mav;
     }
 

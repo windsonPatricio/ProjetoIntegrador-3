@@ -52,10 +52,10 @@
                     <div class="painel">
                         <div class="painel-body">
 
-                            <form action="#" class="inline-form" method="post">
+                            <form ref="/fornecedores" class="inline-form" method="post">
                                 <div class="group">
                                     <label for="#">Código</label>
-                                    <input type="text" th:placeholder="${fornecedor.codigo}" disabled>
+                                    <input type="text"  disabled>
                                 </div>
                                 <div class="group">
                                     <label for="#">CNPJ</label>
@@ -129,7 +129,7 @@
 
                                 <div class="group-btn">
                                     <p>&nbsp;</p>
-                                    <input href="/contratos" type="submit" class="btn btn-red" style="width: 40%;" value="Sair">
+                                    <input href="/fornecedores"  class="btn btn-red" style="width: 40%;" value="Sair">
                                 </div>
 
                             </form>

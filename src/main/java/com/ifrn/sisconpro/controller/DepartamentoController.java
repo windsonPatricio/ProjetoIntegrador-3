@@ -60,7 +60,7 @@ public class DepartamentoController {
     }
 
     @GetMapping("departamentos/..{id}")
-    public ModelAndView editarContrato(@PathVariable("id") long id){
+    public ModelAndView editardepartamento(@PathVariable("id") long id){
         ModelAndView mv = new ModelAndView("/Editar-cad-departamento");
         Departamento departamento = service.findById(id);
         mv.addObject("departamento", departamento);
