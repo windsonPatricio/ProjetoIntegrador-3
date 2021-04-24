@@ -26,7 +26,7 @@ public class ContratoController {
     }
 
     @RequestMapping(value = "/contratos/{id}", method = RequestMethod.GET)
-    public ModelAndView exibirDepartamento(@PathVariable("id") long id){
+    public ModelAndView exibirContrato(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView("detalhes-contratos");
         Contrato contrato = service.findById(id);
         mav.addObject("contrato", contrato);
@@ -47,9 +47,6 @@ public class ContratoController {
 
     @PostMapping("/cad-contratos")
     public String salvarContrato(Contrato contrato){
-        contrato.builder()
-        .fonteRecurso("BNDES")
-                .build();
         service.save(contrato); // Cadastra e atualiza
         return "redirect:/contratos";
     }

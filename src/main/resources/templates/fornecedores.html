@@ -79,7 +79,7 @@
                         <td th:text="${fornecedores.telefone}"></td>
 
                         <td>
-                            <a href="#" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#exampleModal"title="Visualizar"><i class="fa fa-eye"></i></a>
+                            <a th:href="@{'/fornecedores/..'}+${fornecedores.id}" class="btn btn-green" title="Visualizar"><i class="fa fa-eye"></i></a>
                             <a th:href="${fornecedores.id}" class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#exampleModal1" title="Editar"><i class="fa fa-edit"></i></a>
                             <a th:href="@{'/fornecedores/'}+${fornecedores.id}" class="btn btn-red" title="Excluir"><i class="fa fa-trash"></i></a>
                         </td>
