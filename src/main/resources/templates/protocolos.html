@@ -82,8 +82,8 @@
                             <a href="#" class="btn btn-orange"><i class="bg-success"></i> Aguardando recebimento</a>
                         </td>
                         <td>
-                            <a href="#" class="btn btn-green no-print"data-bs-toggle="modal" data-bs-target="#exampleModal" title="Receber"><i class="fas fa-check"></i></a>
-                            <a href="#" class="btn btn-red no-print" data-bs-toggle="modal" data-bs-target="#exampleModal2" title="Cancelar"><i class="fas fa-times"></i></a>
+                            <a th:href="@{'/protocolos/'}+${protocolo.id}" class="btn btn-green no-print" title="Receber"><i class="fas fa-check"></i></a>
+                            <a href="#" class="btn btn-red no-print"  title="Cancelar"><i class="fas fa-times"></i></a>
                         </td>
                     </tr>
 

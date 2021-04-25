@@ -55,7 +55,13 @@ public class ProtocoloController {
         return mv;
     }
 
-
+    @GetMapping("/protocolos/{id}")
+    public String receberContrato(@PathVariable("id") long id){
+        Protocolos teste = new Protocolos();
+        Protocolos prot = service.findById(id);
+        teste.receberProtocolo(prot);
+        return "redirect:/contratos";
+    }
 
 
 }
