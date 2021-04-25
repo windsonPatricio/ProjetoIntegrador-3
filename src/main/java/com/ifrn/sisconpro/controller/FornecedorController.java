@@ -1,13 +1,7 @@
 package com.ifrn.sisconpro.controller;
 
-
-import com.ifrn.sisconpro.model.Contrato;
 import com.ifrn.sisconpro.model.Fornecedor;
-import com.ifrn.sisconpro.repository.FornecerdorRepository;
-import com.ifrn.sisconpro.service.serviceImple.ContratoServiceImple;
 import com.ifrn.sisconpro.service.serviceImple.FornecedorServiceImple;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

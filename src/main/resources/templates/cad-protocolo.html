@@ -53,7 +53,7 @@
 
                         <div class="painel-body">
 
-                            <form action="#" class="inline-form" method="post">
+                            <form th:action="@{/cad-protocolo}" class="inline-form" method="post">
                                 <div class="group">
                                     <label for="#">Número de protocolo</label>
                                     <input type="text" name="numero" id="inputNumero" th:value="${protocolos.numero}" onkeypress="$(this).mask('0000.00-00')" placeholder="Número de protocolo">

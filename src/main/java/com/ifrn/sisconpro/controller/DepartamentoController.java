@@ -67,7 +67,7 @@ public class DepartamentoController {
         return  mv;
     }
 
-    @PostMapping("departamentos/..{id}")
+    @PostMapping("editar-cad-departamento/{id}")
     public String atualizarDepartamento(@PathVariable("id") long id,
                                    @ModelAttribute("departamento") Departamento departamento) {
         Departamento departamentoEditado = service.findById(id);

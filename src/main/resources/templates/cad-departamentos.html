@@ -18,13 +18,13 @@
     <nav class="topnav">
         <div class="logo">
             <img src="img/logo.png" alt="logo">
-            <a href="#"><i class="fa fa-user"></i> [[${#httpServletRequest.remoteUser}]]</a>
-            <a th:href="@{/logout}"><i class="fa fa-power-off"></i></a>
+            <a href="#" class="display-sm display-md" id="menu"><i class="fa fa-list-ul"></i></a>
+            <a href="index.html" class="hidden-sm"></a>
         </div>
         <div class="user">
             <div style="float: right;">
-                <a href="#"><i class="fa fa-user"></i> Kézia</a>
-                <a href="#"><i class="fa fa-power-off"></i></a>
+                <a href="#"><i class="fa fa-user"></i> [[${#httpServletRequest.remoteUser}]]</a>
+                <a th:href="@{/logout}"><i class="fa fa-power-off"></i></a>
             </div>
         </div>
     </nav>
@@ -52,7 +52,7 @@
                     <div class="painel">
                         <div class="painel-body">
                            
-                          <form action="#" class="inline-form" method="post">
+                          <form th:action="@{/cad-departamentos}" class="inline-form" method="post">
                             <div class="group">
                                   <label for="#">Código</label>
                                   <input type="text" name="codigo" id="inputCodigo" th:value="${departamento.codigo}" onkeypress="$(this).mask('0000.00-00')" placeholder="Código do departamento">
