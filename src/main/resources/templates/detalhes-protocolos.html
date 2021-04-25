@@ -24,12 +24,12 @@
     <div class="user">
         <div style="float: right;">
             <a href="#"><i class="fa fa-user"></i> [[${#httpServletRequest.remoteUser}]]</a>
-            <a th:href="@{/logout}"><i class="fa fa-power-off"></i></a>
+            <a th:href="@{/logout}"><i class="fa fa-power-off no-print"></i></a>
         </div>
     </div>
 </nav>
 
-<aside class="sidenav hidden-sm hidden-md" id="nav">
+<aside class="sidenav hidden-sm hidden-md no-print" id="nav">
     <div class="list">
         <a href="/"><i class="fa fa-home"></i> Home</a>
         <a href="/contratos"><i class="fa fa-edit"></i> Contratos</a>
@@ -42,12 +42,14 @@
 
 <main class="content">
     <br>
-    <h1>Detalhes de contratos</h1><br>
+    <h1 class="no-print">Detalhes dos protocolos</h1><br>
+    <h1 class="only-print">Ficha de cadastro</h1><br>
     <div class="grid">
 
         <div class="painel">
             <div class="painel-header">
-                <a href="#" class="btn btn-white"><i class="fas fa-print"></i> Imprimir ficha</a>
+                <button onclick="window.print()" class="d-none d-sm-inline-block btn btn-sm btn-white shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Gerar Ficha</button>
             </div><br>
 
             <div class="painel-body">
@@ -114,7 +116,7 @@
                                     <input th:placeholder="${contrato.arquivo} "class="form-control-file" id="exampleFormControlFile1">
                                 </div>
 
-                                <div class="group-btn">
+                                <div class="group-btn no-print">
                                     <p>&nbsp;</p>
                                     <input type="submit" class="btn btn-red" style="width: 40%;" value="Sair">
                                 </div>

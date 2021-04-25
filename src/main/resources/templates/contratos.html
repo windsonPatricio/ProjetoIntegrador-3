@@ -25,12 +25,12 @@
     <div class="user">
         <div style="float: right;">
             <a href="#"><i class="fa fa-user"></i> [[${#httpServletRequest.remoteUser}]]</a>
-            <a th:href="@{/logout}"><i class="fa fa-power-off"></i></a>
+            <a th:href="@{/logout}"><i class="fa fa-power-off no-print"></i></a>
         </div>
     </div>
 </nav>
 
-<aside class="sidenav hidden-sm hidden-md" id="nav">
+<aside class="sidenav hidden-sm hidden-md no-print" id="nav">
     <div class="list">
         <a href="/"><i class="fa fa-home"></i> Home</a>
         <a href="/contratos"><i class="fa fa-edit"></i> Contratos</a>
@@ -43,20 +43,22 @@
 
 <main class="content">
     <br>
-    <h1>Contratos</h1><br>
+    <h1 class="no-print">Contratos</h1><br>
+    <h1 class="only-print">Relatório</h1><br>
     <div class="grid">
 
         <div class="painel">
             <div class="painel-header">
-                <a href="/cad-contratos" class="btn btn-green btn-lg"><i class="fas fa-plus"></i> Adicionar</a>
+                <a href="/cad-contratos" class="btn btn-green btn-lg no-print"><i class="fas fa-plus"></i> Adicionar</a>
                 <div>
-                    <form action="#" method="post" class="hidden-sm">
+                    <form action="#" method="post" class="hidden-sm no-print">
                         <input type="text" name="search" id="search" placeholder="Procurar...">
                         <i class="fa fa-search"></i>
                     </form>
                 </div>
 
-                <a href="#" class="btn btn-white"><i class="fas fa-print"></i> Imprimir relatório</a>
+                <button onclick="window.print()" class="d-none d-sm-inline-block btn btn-sm btn-white shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Gerar Relatório</button>
             </div>
 
             <div class="painel-body">
@@ -69,7 +71,7 @@
                         <th>Fim</th>
                         <th>Valor R$</th>
                         <th>Status</th>
-                        <th>Ações</th>
+                        <th class="no-print">Ações</th>
                     </tr>
                     <tr th:each="contrato : ${contratosLista}">
                         <td th:text="${contrato.numero}"></td>
@@ -82,166 +84,11 @@
                             <a href="#" class="btn btn-green"><i class="bg-success"></i> Ativo</a>
                         </td>
                         <td>
-                            <a th:href="@{'/contratos/'}+${contrato.id}"  class="btn btn-green" title="Visualizar"><i class="fa fa-eye"></i></a>
-                            <a th:href="@{'/contratos/..'}+${contrato.id}" class="btn btn-orange" title="Editar"><i class="fa fa-edit"></i></a>
-                            <a th:href="@{'/contratos/.'}+${contrato.id}" class="btn btn-red" title="Excluir"><i class="fa fa-trash"></i></a>
+                            <a th:href="@{'/contratos/'}+${contrato.id}"  class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
+                            <a th:href="@{'/contratos/..'}+${contrato.id}" class="btn btn-orange no-print" title="Editar"><i class="fa fa-edit"></i></a>
+                            <a th:href="@{'/contratos/.'}+${contrato.id}" class="btn btn-red no-print" title="Excluir"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
-
-
-                    <!-- Modal excluir-->
-                    <div class="modal fade"  id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title" id="exampleModalLabel">Excluir</h2>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Deseja excluir o contrato?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button"  class="btn btn-red" data-bs-dismiss="modal" >Sim</button>
-                                    <button type="button" class="btn btn-secondary">Não</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modal visualizar-->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title" id="exampleModalLabel">Dados do contrato</h2>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="painel-body">
-
-                                        <div class="grid">
-
-                                            <fieldset >
-
-                                                <p>Número de contrato: </p>
-                                                <p>CNPJ do fornecedor:</p>
-                                                <p>Razão social:</p>
-                                                <p>Data de início:</p>
-                                                <p>Data Final:</p>
-                                                <p>Valor do contrato R$:</p>
-                                                <p>Unidade beneficiada:</p>
-                                                <p>Modalidade:</p>
-                                                <p>Tipo do contrato:</p>
-                                                <p>Data Final:</p>
-                                                <p>Objeto do contrato:</p>
-                                                <p>Documento anexado?</p>
-
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary"><i class="fas fa-print"></i> Imprimir</button>
-                                    <button type="button" class="btn btn-red" data-bs-dismiss="modal">Fechar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modal editar-->
-                    <div class="modal fade bd-example-modal-lg" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title" id="exampleModalLabel">Editar contrato</h2>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body" id = "myModalBody">
-
-                                    <div class="grid">
-                                        <div class="painel">
-                                            <form id="contact-form" role="form">
-                                                <div class="controls">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="numero">Número de contrato</label> <input type="text" name="name" class="form-control" placeholder="Número de contrato" required="required" data-error="Campo obrigatório"> </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="cnpj">CNPJ</label> <input type="text" name="" class="form-control" placeholder="CNPJ" required="required" data-error="Campo obrigatório"> </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="razao">Razão social</label> <input type="text" name="" class="form-control" placeholder="Razão social" required="required" data-error="Campo obrigatório"> </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="cnpj">Valor do contrato R$</label> <input type="text" name="" class="form-control" placeholder="Valor do contrato R$" required="required" data-error="Campo obrigatório"> </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="data">Data de início</label> <input type="date" name="data" class="form-control" placeholder="Data de início" required="required" data-error="Valid email is required."> </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="data">Data de Final</label> <input type="date" name="data" class="form-control" placeholder="Data de Final" required="required" data-error="Valid email is required."> </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="row">
-
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="form_need">Unidade beneficiada</label> <select name="need" class="form-control" required="required" data-error="Campo obrigatório">
-                                                                <option value="" selected disabled>--Selecionar--</option>
-                                                                <option>Selecione</option>
-                                                                <option>Selecione</option>
-                                                                <option>Selecione</option>
-                                                            </select> </div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="form_need">Modalidade</label> <select name="need" class="form-control" required="required" data-error="Campo obrigatório">
-                                                                <option value="" selected disabled>--Selecionar--</option>
-                                                                <option>Carta convite</option>
-                                                                <option>Pregão</option>
-                                                                <option>Dispensa de licitação</option>
-                                                            </select> </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group"> <label for="form_need">Tipo do contrato</label> <select name="need" class="form-control" required="required" data-error="Campo obrigatório">
-                                                                <option value="" selected disabled>--Selecionar--</option>
-                                                                <option>Obras</option>
-                                                                <option>Serviços</option>
-                                                                <option>Fornecimento</option>
-                                                                <option>Locação de imóvel</option>
-                                                            </select> </div>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                            <div class="form-group"> <label for="">Objeto do contrato</label> <textarea id="form_message" name="message" class="form-control" placeholder="Objeto do contrato" rows="4" required="required" data-error="Campo obrigatório"></textarea> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-
-
-                                            <div class = "modal-footer">
-
-                                                <button type="button" class="btn btn-green">Salvar</button>
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
                 </table>
 
             </div>

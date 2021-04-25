@@ -24,12 +24,12 @@
         <div class="user">
             <div style="float: right;">
                 <a href="#"><i class="fa fa-user"></i> [[${#httpServletRequest.remoteUser}]]</a>
-                <a th:href="@{/logout}"><i class="fa fa-power-off"></i></a>
+                <a th:href="@{/logout}"><i class="fa fa-power-off no-print"></i></a>
             </div>
         </div>
     </nav>
 
-    <aside class="sidenav hidden-sm hidden-md" id="nav">
+    <aside class="sidenav hidden-sm hidden-md no-print" id="nav">
         <div class="list">
             <a href="/"><i class="fa fa-home"></i> Home</a>
             <a href="/contratos"><i class="fa fa-edit"></i> Contratos</a>
@@ -42,20 +42,22 @@
 
    <main class="content">
       <br>
-    <h1>Departamentos</h1><br>
+       <h1 class="no-print">Departamentos</h1><br>
+       <h1 class="only-print">Relatório</h1><br>
       <div class="grid">
           
           <div class="painel">
               <div class="painel-header">
-                <a href="/cad-departamentos" class="btn btn-green btn-lg"><i class="fas fa-plus"></i> Adicionar</a>
+                <a href="/cad-departamentos" class="btn btn-green btn-lg no-print"><i class="fas fa-plus"></i> Adicionar</a>
                 <div>
-                    <form action="#" method="post" class="hidden-sm">
+                    <form action="#" method="post" class="hidden-sm no-print">
                         <input type="text" name="search" id="search" placeholder="Procurar...">
                         <i class="fa fa-search"></i>
                     </form>
                   </div>
-               
-                 <a href="#" class="btn btn-white"><i class="fas fa-print"></i> Imprimir relatório</a>
+
+                  <button onclick="window.print()" class="d-none d-sm-inline-block btn btn-sm btn-white shadow-sm">
+                      <i class="fas fa-download fa-sm text-white-50"></i> Gerar Relatório</button>
               </div>
 
             <div class="painel-body">
@@ -68,7 +70,7 @@
                         <th>Responsável</th>
                         <th>Telefone</th>
                         <th>E-mail</th>
-                        <th>Ações</th>
+                        <th class="no-print">Ações</th>
                     </tr>
                     <tr th:each="departamento : ${departamentoLista}">
                         <td th:text="${departamento.codigo}"></td>
@@ -79,131 +81,18 @@
                         <td th:text="${departamento.email}"></td>
 
                         <td>
-                            <a th:href="@{'/departamentos/'}+${departamento.id}" class="btn btn-green" title="Visualizar"><i class="fa fa-eye"></i></a>
-                            <a th:href="@{'/departamentos/..'}+${departamento.id}" class="btn btn-orange" title="Editar"><i class="fa fa-edit"></i></a>
-                            <a th:href="@{'/departamentos/.'}+${departamento.id}" class="btn btn-red"  title="Excluir"><i class="fa fa-trash"></i></a>
+                            <a th:href="@{'/departamentos/'}+${departamento.id}" class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
+                            <a th:href="@{'/departamentos/..'}+${departamento.id}" class="btn btn-orange no-print" title="Editar"><i class="fa fa-edit"></i></a>
+                            <a th:href="@{'/departamentos/.'}+${departamento.id}" class="btn btn-red no-print"  title="Excluir"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
-                   
-                   <!-- Modal excluir-->
-                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLabel">Excluir</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        Deseja excluir o departamento?
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-red" data-bs-dismiss="modal">Sim</button>
-                        <button type="button" class="btn btn-secondary">Não</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Modal visualizar-->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLabel">Dados do departamento</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="painel-body">
-                                
-                                <div class="grid">
-                                   
-                                      <fieldset>
-                                                                                
-                                          <p>Código: <br></p>		
-                                          <p>Nome:</p>
-                                          <p>Sigla:</p>
-                                          <p>Responsável pelo departamento:</p>
-                                          <p>Telefone:</p>
-                                          <p>E-mail:</p>
-                                          
-                                         
-                                      </fieldset>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-primary"><i class="fas fa-print"></i> Imprimir</button>
-                        <button type="button" class="btn btn-red" data-bs-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Modal editar-->
-                <div class="modal fade bd-example-modal-lg" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLabel">Editar departamento</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body" id = "myModalBody">
-                           
-                <div class="grid">
-                    <div class="painel">
-                        <form id="contact-form" role="form">
-                            <div class="controls">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="codigo">Código</label> <input type="text" name="name" class="form-control" placeholder="Código" required="required" data-error="Campo obrigatório"> </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="nome">Nome</label> <input type="text" name="" class="form-control" placeholder="Nome" required="required" data-error="Campo obrigatório"> </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="sigla">Sigla</label> <input type="text" name="" class="form-control" placeholder="Sigla" required="required" data-error="Campo obrigatório"> </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="responsavel">Responsável pelo departamento</label> <input type="text" name="" class="form-control" placeholder="Responsável pelo departamento" required="required" data-error="Campo obrigatório"> </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="telefone">Telefone</label> <input type="text" name="" class="form-control" placeholder="Responsável pelo departamento" required="required" data-error="Campo obrigatório"> </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="email">E-mail</label> <input type="text" name="" class="form-control" placeholder="Responsável pelo departamento" required="required" data-error="Campo obrigatório"> </div>
-                                    </div>
-                                </div>
-
-                                
-                            </div>
-                        </form>
-<br>
-                        <div class = "modal-footer">
-                           
-                                <button type="button" class="btn btn-green">Salvar</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        
-                        </div>
-                    </div>
-                </div>
-            </div>
-               
-                    </div>
-                    
-                        
-                </div>
-                    
-        </div>
                 </table>
-              </div>
+             </div>
           </div>
 
           
-          </div>
       </div>
+
    </main>
 <script src="js/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
