@@ -23,7 +23,7 @@ public class IndexController {
     @Autowired
     ProtocoloServiceImple servico;
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public String getHomePage(){
         return "index";
     }

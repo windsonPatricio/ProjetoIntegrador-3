@@ -22,7 +22,7 @@ public class FornecedorController {
     FornecedorServiceImple service;
 
 
-    @RequestMapping(value = "/fornecedores",  method = RequestMethod.GET)
+    @GetMapping(value = "/fornecedores")
     public ModelAndView getForncedores(){
         ModelAndView mv = new ModelAndView("fornecedores");
         List<Fornecedor> fornecedor = service.findAll();
