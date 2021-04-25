@@ -1,0 +1,58 @@
+
+.only-print{
+    display: none !important;
+}
+
+@media print{
+   
+    .no-print{
+        display: none !important;
+    }
+
+    .only-print{
+        position: relative !important;
+        display: flex !important;
+        align-items: left !important;
+        justify-content: left !important;
+        margin-top: 5rem !important;
+        
+    }
+
+*,
+*::before,
+*::after {
+  margin: 2px !important;
+  padding: 1px !important;
+  box-sizing: inherit !important;
+  color: black !important;
+  
+}
+
+html {
+  font-size: 70% !important; 
+}
+
+.form input, .form select, .inline-form input, .inline-form select, .inline-form textarea {
+    width: 85% !important;
+    padding: 1.2rem 2rem !important;
+    margin: .2rem 0 !important;
+    font-size: 1.4rem !important; 
+  }
+
+  .painel-body {
+    padding: 1.2rem 2rem !important;
+    margin: 0.5rem 0 !important;
+    font-size: 1.4rem !important;   
+}
+
+th,
+td {
+  padding: .6rem;
+  text-align: left;
+  border-bottom: 1px solid #243137;
+
+}
+
+  
+
+}
