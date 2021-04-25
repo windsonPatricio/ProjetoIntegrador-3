@@ -60,5 +60,12 @@ public class Protocolos {
     @Column(name = "Status")
     private String status;
 
-
+    public String receberProtocolo(Protocolos protocolo){
+        if(protocolo.getStatus()=="2"){
+            protocolo.setStatus("1");
+            return protocolo.getStatus();
+        }else{
+            return protocolo.getStatus();
+        }
+    }
 }

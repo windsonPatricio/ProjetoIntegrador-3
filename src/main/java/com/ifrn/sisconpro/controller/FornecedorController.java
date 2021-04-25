@@ -1,5 +1,6 @@
 package com.ifrn.sisconpro.controller;
 
+import com.ifrn.sisconpro.model.Contrato;
 import com.ifrn.sisconpro.model.Fornecedor;
 import com.ifrn.sisconpro.service.serviceImple.FornecedorServiceImple;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class FornecedorController {
     @Autowired
     FornecedorServiceImple service;
 
-
+    // EXIBIR LISTA DOS FORNECEDORES
     @GetMapping(value = "/fornecedores")
     public ModelAndView getForncedores(){
         ModelAndView mv = new ModelAndView("fornecedores");
@@ -24,7 +25,7 @@ public class FornecedorController {
         return mv;
     }
 
-
+    // CADASTRO FORNECEDOR --------------------------------------------
     @GetMapping("/cad-fornecedores")
     public String exibirForm(Fornecedor forncedores){
     return "cad-fornecedores";
@@ -38,12 +39,16 @@ public class FornecedorController {
         return "redirect:/fornecedores";
     }
 
+
+    // EXCLUIR FORNECEDOR ----------------------------------------
     @GetMapping("/fornecedores/{id}")
     public String excluirFornecedor(@PathVariable("id") long id){
         service.deleteById(id);
         return "redirect:/fornecedores";
     }
 
+
+       // EXIBIR DETALHES FORNECEDOR ---------------------------------
     @RequestMapping(value = "/fornecedores/..{id}", method = RequestMethod.GET)
     public ModelAndView exibirFornecedor(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView("detalhes-fornecedores");
@@ -52,5 +57,30 @@ public class FornecedorController {
         return mav;
     }
 
+    @GetMapping("fornecedores/.{id}")
+    public ModelAndView editarForncedor(@PathVariable("id") long id){
+        ModelAndView mv = new ModelAndView("/Editar-cad-fornecedores");
+        Fornecedor fornecedor = service.findById(id);
+        mv.addObject("fornecedor", fornecedor);
+        return  mv;
+    }
+
+    @PostMapping("/Editar-cad-fornecedores/{id}")
+    public String atualizarFornecedor(@PathVariable("id") long id,
+                                   @ModelAttribute("fornecedor") Fornecedor fornecedor) {
+        Fornecedor FornecedorEditado = service.findById(id);
+        if (!FornecedorEditado.equals(fornecedor)) {
+            FornecedorEditado.setCodigo(fornecedor.getCodigo());
+            FornecedorEditado.setCnpj(fornecedor.getCnpj());
+            FornecedorEditado.setNome(fornecedor.getNome());
+            FornecedorEditado.setTelefone(fornecedor.getTelefone());
+            FornecedorEditado.setEndereco(fornecedor.getEndereco());
+            FornecedorEditado.setRamo(fornecedor.getRamo());
+
+            service.save(FornecedorEditado); // Cadastra e atualiza
+        }
+
+        return "redirect:/fornecedores";
+    }
 
 }

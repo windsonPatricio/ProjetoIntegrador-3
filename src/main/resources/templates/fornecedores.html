@@ -82,7 +82,7 @@
 
                         <td>
                             <a th:href="@{'/fornecedores/..'}+${fornecedores.id}" class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
-                            <a th:href="${fornecedores.id}" class="btn btn-orange no-print" data-bs-toggle="modal" data-bs-target="#exampleModal1" title="Editar"><i class="fa fa-edit"></i></a>
+                            <a th:href="@{'/fornecedores/.'}+${fornecedores.id}" class="btn btn-orange no-print"  title="Editar"><i class="fa fa-edit"></i></a>
                             <a th:href="@{'/fornecedores/'}+${fornecedores.id}" class="btn btn-red no-print" title="Excluir"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>

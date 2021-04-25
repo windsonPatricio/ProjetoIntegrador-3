@@ -22,7 +22,7 @@ public class FornecedorServiceImple implements FornecedorService{
 
     @Override
     public Fornecedor findById(Long id) {
-        return null;
+        return repository.findById(id).get();
     }
 
 
