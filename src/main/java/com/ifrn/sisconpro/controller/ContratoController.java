@@ -2,12 +2,14 @@ package com.ifrn.sisconpro.controller;
 
 
 import com.ifrn.sisconpro.model.Contrato;
+import com.ifrn.sisconpro.model.QContrato;
 import com.ifrn.sisconpro.service.serviceImple.ContratoServiceImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -47,6 +49,13 @@ public class ContratoController {
 
     @PostMapping("/cad-contratos")
     public String salvarContrato(Contrato contrato){
+
+        LocalDate data = contrato.converterData(contrato.getDataFimVigencia());
+        contrato.setDataConvertida(data);
+        if(!contrato.getDataConvertida().isAfter(LocalDate.now())){
+            contrato.setStatus("2");
+        }
+
         service.save(contrato); // Cadastra e atualiza
         return "redirect:/contratos";
     }
@@ -60,7 +69,7 @@ public class ContratoController {
         return  mv;
     }
 
-    @PostMapping("/Editar-cad-contratos/{id}")
+    @PostMapping("editar-cad-contratos/{id}")
     public String atualizarCliente(@PathVariable("id") long id,
                                    @ModelAttribute("contrato") Contrato contrato) {
         Contrato contratoEditado = service.findById(id);

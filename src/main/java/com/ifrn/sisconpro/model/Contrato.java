@@ -25,6 +25,7 @@ import java.util.Date;
 
 
 public class Contrato{
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -66,18 +67,25 @@ public class Contrato{
 
     @Column(name = "dataInicioVigencia")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date dataInicioVigencia;
+    private String dataInicioVigencia;
 
     @Column(name = "dataFimlVigencia")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date dataFimVigencia;
+    private String dataFimVigencia;
 
     @Column(name = "arquivo")
     private File arquivo;
 
     @Column(name = "Status")
-    private int status;
+    private String status;
 
+    @Column(name = "dataconvertida")
+    private LocalDate dataConvertida;
+
+    public LocalDate converterData(String data){
+        LocalDate obj = LocalDate.parse(data);
+        return obj;
+    }
 
 }
 

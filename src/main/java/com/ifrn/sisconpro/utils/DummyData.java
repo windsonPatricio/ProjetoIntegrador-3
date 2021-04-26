@@ -16,33 +16,33 @@ import java.util.List;
 @Component
 public class DummyData {
 
-    @Autowired
-    UsuarioRepository repository;
-
-
-    @PostConstruct
-    public void salvarUsuario() {
-
-        List<Usuario> users = new LinkedList<>();
-
-        try {
-            Usuario user1 = Usuario.builder()
-                    .matricula("Admin")
-                    .nome("Administrador")
-                    .setor("CTI")
-                    .telefone("3282-3045")
-                    .senha(new BCryptPasswordEncoder().encode("admin"))
-                    .build();
-
-            users.add(user1);
-            for (Usuario lista : users) {
-                Usuario listaUser = repository.save(lista);
-                System.out.println("[SAIDA] ID: " + listaUser.getId());
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            ;
-        }
-    }
+//    @Autowired
+//    UsuarioRepository repository;
+//
+//
+//    @PostConstruct
+//    public void salvarUsuario() {
+//
+//        List<Usuario> users = new LinkedList<>();
+//
+//        try {
+//            Usuario user1 = Usuario.builder()
+//                    .matricula("Admin")
+//                    .nome("Administrador")
+//                    .setor("CTI")
+//                    .telefone("3282-3045")
+//                    .senha(new BCryptPasswordEncoder().encode("admin"))
+//                    .build();
+//
+//            users.add(user1);
+//            for (Usuario lista : users) {
+//                Usuario listaUser = repository.save(lista);
+//                System.out.println("[SAIDA] ID: " + listaUser.getId());
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//            ;
+//        }
+//    }
 }
 

@@ -79,11 +79,13 @@
                         <td th:text="${protocolo.nomeDepartamentoDestino}"></td>
                         <td th:text="${protocolo.assunto}"></td>
                         <td>
-                            <a href="#" class="btn btn-orange"><i class="bg-success"></i> Aguardando recebimento</a>
+                            <span th:if="${protocolo.status == '1'}"><a href="#" class="btn btn-green"><i class="bg-success"></i> Recebido</a></span>
+                            <span th:if="${protocolo.status == '2'}"><a href="#" class="btn btn-orange"><i class="bg-success"></i> Aguardando</a></span>
+                            <span th:if="${protocolo.status == '3'}"><a href="#" class="btn btn-red"><i class="bg-success"></i> Cancelado</a></span>
                         </td>
                         <td>
                             <a th:href="@{'/protocolos/'}+${protocolo.id}" class="btn btn-green no-print" title="Receber"><i class="fas fa-check"></i></a>
-                            <a href="#" class="btn btn-red no-print"  title="Cancelar"><i class="fas fa-times"></i></a>
+                            <a th:href="@{'/protocolos/.'}+${protocolo.id}" class="btn btn-red no-print"  title="Cancelar"><i class="fas fa-times"></i></a>
                         </td>
                     </tr>
 

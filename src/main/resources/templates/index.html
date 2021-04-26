@@ -67,7 +67,7 @@
           </div>
           <div class="mini-reports bg-orange">
             <div class="l">
-              <!--  <span th:text="${listaCtr}"></span> -->
+                <span th:text="${listaCtr}"></span>
                 <span>Contratos próximos do vencimento</span>
             </div>
             <div class="r">
@@ -135,10 +135,13 @@
                   <tr th:each="contrato : ${contratoVenc}">
                       <td th:text="${contrato.numero}"></td>
                       <td th:text="${contrato.razaoSocial}"></td>
-                      <td>Biblioteca</td>
+                      <td th:text="${contrato.unidadeBeneficiaria}"></td>
                       <td th:text="${contrato.tipoContrato}"></td>
                       <td>
-                        <a href="#" class="btn btn-orange"><i class="bg-orange"></i> A vencer</a>
+                          <span th:if="${contrato.status == '1'}"><a href="#" class="btn btn-green"><i class="bg-success"></i> ativo</a></span>
+                          <span th:if="${contrato.status == '2'}"><a href="#" class="btn btn-orange"><i class="bg-success"></i> vencido</a></span>
+                          <span th:if="${contrato.status == '3'}"><a href="#" class="btn btn-blue"><i class="bg-success"></i> encerrado</a></span>
+                          <span th:if="${contrato.status == '4'}"><a href="#" class="btn btn-red"><i class="bg-success"></i> cancelado</a></span>
                     </td>
                   </tr>
               </table>

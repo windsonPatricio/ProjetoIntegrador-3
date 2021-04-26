@@ -14,7 +14,7 @@ public interface ContratoService {
 
 
 
-  //  Iterable<Contrato> listarContratoProximoVencimento();
+    Iterable<Contrato> listarContratoProximoVencimento();
     Iterable<Contrato> contarContratosConfirmados();
 
 

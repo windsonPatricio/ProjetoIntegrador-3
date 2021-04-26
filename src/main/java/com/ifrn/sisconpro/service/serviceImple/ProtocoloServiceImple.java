@@ -52,7 +52,7 @@ public class ProtocoloServiceImple implements ProtocoloService {
     @Override
     public Iterable<Protocolos> contarProtocolosEnviados(){
         QProtocolos qProtocolos = QProtocolos.protocolos;
-        BooleanExpression listaDeEnviados = qProtocolos.status.eq("3");
+        BooleanExpression listaDeEnviados = qProtocolos.status.eq("1");
         return repository.findAll(listaDeEnviados);
     }
 

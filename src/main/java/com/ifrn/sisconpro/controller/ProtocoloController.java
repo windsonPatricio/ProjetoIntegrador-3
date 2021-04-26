@@ -20,17 +20,16 @@ public class ProtocoloController {
     ProtocoloService service;
     DepartamentoRepository departamentoService;
 
-    public List<Departamento> listar() {
-        return this.departamentoService.findAll();
-    }
 
 
 
     //METODOS DOS CADASTROS ----------------
     @RequestMapping(value = "/cad-protocolo", method = RequestMethod.GET)
     public ModelAndView listaDepartamento() {
+        List<Departamento> departamento = departamentoService.findAll();
+        System.out.println("lista de teste" + departamento);
         ModelAndView mv = new ModelAndView("cad-protocolo");
-        mv.addObject("departamento", this.listar());
+        mv.addObject("departamento",departamento);
         return mv;
     }
 
@@ -57,11 +56,21 @@ public class ProtocoloController {
 
     @GetMapping("/protocolos/{id}")
     public String receberContrato(@PathVariable("id") long id){
-        Protocolos teste = new Protocolos();
         Protocolos prot = service.findById(id);
-        teste.receberProtocolo(prot);
-        return "redirect:/contratos";
+        if (prot.getStatus() =="3"|| prot.getStatus() =="2"){
+
+        } else {
+            prot.setStatus("1");
+        }
+        service.save(prot);
+        return "redirect:/protocolos";
     }
 
-
+    @GetMapping("/protocolos/.{id}")
+    public String cancelarContrato(@PathVariable("id") long id){
+        Protocolos prot = service.findById(id);
+        prot.setStatus("3");
+        service.save(prot);
+        return "redirect:/protocolos";
+    }
 }

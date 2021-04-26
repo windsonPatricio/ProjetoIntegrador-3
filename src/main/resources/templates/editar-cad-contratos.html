@@ -79,11 +79,11 @@
                                 </div>
                                 <div class="group">
                                     <label for="#">Data de início</label>
-                                    <input type="date" name="dataInicioVigencia" id="inputDataInicioVigencia" th:value="${#dates.format(contrato.dataInicioVigencia, 'yyyy-MM-dd')}" placeholder="Data início" />
+                                    <input type="date" name="dataInicioVigencia" id="inputDataInicioVigencia" th:value="${contrato.dataInicioVigencia}" placeholder="Data início" />
                                 </div>
                                 <div class="group">
                                     <label for="#">Data Final</label>
-                                    <input type="date" name="dataFimVigencia" id="inputDataFimVigencia" th:value="${#dates.format(contrato.dataFimVigencia, 'yyyy-MM-dd')}" placeholder="Data final" />
+                                    <input type="date" name="dataFimVigencia" id="inputDataFimVigencia" th:value="${contrato.dataFimVigencia}" placeholder="Data final" />
                                 </div>
 
                                 <div class="group">

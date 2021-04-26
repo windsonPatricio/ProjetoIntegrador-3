@@ -65,7 +65,7 @@ public class FornecedorController {
         return  mv;
     }
 
-    @PostMapping("/Editar-cad-fornecedores/{id}")
+    @PostMapping("editar-cad-fornecedores/{id}")
     public String atualizarFornecedor(@PathVariable("id") long id,
                                    @ModelAttribute("fornecedor") Fornecedor fornecedor) {
         Fornecedor FornecedorEditado = service.findById(id);

@@ -1,6 +1,7 @@
 package com.ifrn.sisconpro.service.serviceImple;
 
 import com.ifrn.sisconpro.model.Contrato;
+import com.ifrn.sisconpro.model.Protocolos;
 import com.ifrn.sisconpro.model.QContrato;
 import com.ifrn.sisconpro.repository.ContratoRepository;
 import com.ifrn.sisconpro.service.ContratoService;
@@ -8,14 +9,20 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.EntityManager;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 
 @Service
 public class ContratoServiceImple implements ContratoService {
+
 
     @Autowired
     ContratoRepository repository;
@@ -46,17 +53,17 @@ public class ContratoServiceImple implements ContratoService {
     public void deleteById(Long id) { repository.deleteById(id); }
 
 
-    //@Override
-   // public Iterable<Contrato> listarContratoProximoVencimento() {
-      //  QContrato qContrato = QContrato.contrato;
-      //  BooleanExpression contrProxVenc = qContrato.dataFimVigencia.goe(LocalDate.now());
-       //        return repository.findAll(contrProxVenc);
-  //  }
+    @Override
+    public Iterable<Contrato> listarContratoProximoVencimento() {
+        QContrato qContrato = QContrato.contrato;
+        BooleanExpression contrProxVenc = qContrato.dataConvertida.goe(LocalDate.now());
+               return repository.findAll(contrProxVenc);
+    }
 
     @Override
     public Iterable<Contrato> contarContratosConfirmados(){
         QContrato qContrato = QContrato.contrato;
-        BooleanExpression listaDeConfirmados = qContrato.status.eq(1);
+        BooleanExpression listaDeConfirmados = qContrato.status.eq("1");
         return repository.findAll(listaDeConfirmados);
     }
 
