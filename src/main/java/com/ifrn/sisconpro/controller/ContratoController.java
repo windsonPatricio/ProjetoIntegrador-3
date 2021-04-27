@@ -27,7 +27,7 @@ public class ContratoController {
         return mv;
     }
 
-    @RequestMapping(value = "/contratos/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/contratos/exibir/{id}", method = RequestMethod.GET)
     public ModelAndView exibirContrato(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView("detalhes-contratos");
         Contrato contrato = service.findById(id);
@@ -35,7 +35,7 @@ public class ContratoController {
         return mav;
     }
 
-    @GetMapping("/contratos/.{id}")
+    @GetMapping("/contratos/excluir/{id}")
     public String excluirContrato(@PathVariable("id") long id){
         service.deleteById(id);
         return "redirect:/contratos";
@@ -61,7 +61,7 @@ public class ContratoController {
     }
 
 
-    @GetMapping("contratos/..{id}")
+    @GetMapping("contratos/editar/{id}")
     public ModelAndView editarContrato(@PathVariable("id") long id){
         ModelAndView mv = new ModelAndView("/Editar-cad-contratos");
         Contrato contrato = service.findById(id);

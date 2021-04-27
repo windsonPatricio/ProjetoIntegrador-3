@@ -29,10 +29,11 @@ public class ProtocoloController {
     //METODOS DOS CADASTROS ----------------
     @RequestMapping(value = "/cad-protocolo", method = RequestMethod.GET)
     public ModelAndView listaDepartamento() {
-        List<Departamento> departamento = departamentoService.findAll();
+        List<Departamento> departamentod = departamentoService.findAll();
         Protocolos protocolos = new Protocolos();
         ModelAndView mv = new ModelAndView("cad-protocolo");
-        mv.addObject("departamento",departamento);
+        mv.addObject("departamentoD",departamentod);
+        mv.addObject("departamentoO",departamentod);
         mv.addObject("protocolos" ,protocolos);
         return mv;
     }

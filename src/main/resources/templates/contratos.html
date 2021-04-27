@@ -88,9 +88,9 @@
 
                         </td>
                         <td>
-                            <a th:href="@{'/contratos/'}+${contrato.id}"  class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
-                            <a th:href="@{'/contratos/..'}+${contrato.id}" class="btn btn-orange no-print" title="Editar"><i class="fa fa-edit"></i></a>
-                            <a th:href="@{'/contratos/.'}+${contrato.id}" class="btn btn-red no-print" title="Excluir"><i class="fa fa-trash"></i></a>
+                            <a th:href="@{'/contratos/exibir/'}+${contrato.id}"  class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
+                            <a th:href="@{'/contratos/editar/'}+${contrato.id}" class="btn btn-orange no-print" title="Editar"><i class="fa fa-edit"></i></a>
+                            <a th:href="@{'/contratos/excluir/'}+${contrato.id}" class="btn btn-red no-print" title="Excluir"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 </table>
