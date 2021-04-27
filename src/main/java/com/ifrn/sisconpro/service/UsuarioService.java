@@ -10,4 +10,5 @@ public interface UsuarioService {
     Usuario findById(Long id);
     Usuario findByMatricula(String matircula);
     Usuario save(Usuario usuario);
+    void deleteById(Long id);
 }

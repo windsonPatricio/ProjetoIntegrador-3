@@ -32,4 +32,7 @@ public class UsuarioServiceImp implements UsuarioService {
         return repository.save(usuario);
     }
 
+    @Override
+    public void deleteById(Long id) { repository.deleteById(id); }
+
 }

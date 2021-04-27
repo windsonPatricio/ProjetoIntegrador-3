@@ -34,8 +34,6 @@ public class Usuario implements UserDetails {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    //private tipoUsuario tipo;
-
     @Column(name = "setor", nullable = false)
     private String setor;
 
@@ -44,6 +42,9 @@ public class Usuario implements UserDetails {
 
     @Column(name = "senha", nullable = false)
     private String senha;
+
+    @Column(name = "tipoUsuario", nullable = false)
+    private String tipoUsuario;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
