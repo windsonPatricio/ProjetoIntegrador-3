@@ -58,7 +58,7 @@
                           <form th:action="@{/cad-usuarios}" class="inline-form" method="post">
                             <div class="group">
                                   <label for="#">Matrícula</label>
-                                  <input type="text" name="matricula" id="inputMatricula" th:value="${usuarios.matricula}" placeholder="Matrícula">
+                                  <input type="text" name="matricula" id="inputMatricula" th:value="${usuarios.nome}" placeholder="Matrícula" required>
                             </div>
 
                             <div class="group">

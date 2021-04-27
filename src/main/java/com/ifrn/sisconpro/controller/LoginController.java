@@ -43,9 +43,9 @@ public class LoginController {
         return "redirect:/usuarios";
     }
 
-    @GetMapping("/cad-contratos")
-    public String exibirForm(Usuario usuario){
-        return "cad-contratos";
+    @GetMapping("/cad-usuarios")
+    public String exibirForm(Usuario usuarios){
+        return "cad-usuarios";
     }
 
 

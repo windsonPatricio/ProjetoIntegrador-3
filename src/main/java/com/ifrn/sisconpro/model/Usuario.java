@@ -24,11 +24,11 @@ import java.util.Collection;
 public class Usuario implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
 
-    @Column(name = "matricula", nullable = false, unique = true)
+    @Column(name = "matricula", nullable = false)
     private String matricula;
 
     @Column(name = "nome", nullable = false)
@@ -43,7 +43,7 @@ public class Usuario implements UserDetails {
     @Column(name = "senha", nullable = false)
     private String senha;
 
-    @Column(name = "tipoUsuario", nullable = false)
+    @Column(name = "tipoUsuario")
     private String tipoUsuario;
 
     @Override

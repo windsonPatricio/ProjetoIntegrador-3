@@ -30,13 +30,11 @@ public class Protocolos {
     @Column(name = "numero", nullable = false)
     private String numero;
 
-    @ManyToOne
-    @JoinColumn(name = "idProtocoloDepartamentoOrigem")
-    private Departamento nomeDepartamentoOrigem;
+    @Column(name = "protocoloDepartamentoOrigem")
+    private String nomeDepartamentoOrigem;
 
-    @ManyToOne
-    @JoinColumn(name = "idProtocoloDepartamentoDestino")
-    private Departamento nomeDepartamentoDestino;
+    @Column(name = "protocoloDepartamentoDestino")
+    private String nomeDepartamentoDestino;
 
     @Column(name = "dataEnvio")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

@@ -4,9 +4,11 @@ import com.ifrn.sisconpro.model.Usuario;
 import com.ifrn.sisconpro.repository.UsuarioRepository;
 import com.ifrn.sisconpro.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UsuarioServiceImp implements UsuarioService {
 
     @Autowired

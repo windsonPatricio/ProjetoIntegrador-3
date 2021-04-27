@@ -84,6 +84,12 @@ public class ContratoController {
             contratoEditado.setModalidade(contrato.getModalidade());
             contratoEditado.setTipoContrato(contrato.getTipoContrato());
             contratoEditado.setObjetoContrato(contrato.getObjetoContrato());
+
+            LocalDate data = contratoEditado.converterData(contratoEditado.getDataFimVigencia());
+            contratoEditado.setDataConvertida(data);
+            if(!contratoEditado.getDataConvertida().isAfter(LocalDate.now())){
+                contratoEditado.setStatus("2");
+            }
             service.save(contratoEditado); // Cadastra e atualiza
         }
 
