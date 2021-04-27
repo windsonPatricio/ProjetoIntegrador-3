@@ -52,7 +52,7 @@
                     <div class="painel">
                         <div class="painel-body">
 
-                            <form th:action="@{/cad-contratos}" class="inline-form" method="post">
+                            <form href="/cad-contratos" th:action="@{/cad-contratos}" class="inline-form" method="post">
                                 <div class="group">
                                     <label for="#">Número de contrato</label>
                                     <input type="text" name="numero" id="inputNumero" th:value="${contrato.numero}" placeholder="Número de contrato" required>
