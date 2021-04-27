@@ -71,8 +71,11 @@
                                 <div class="group">
                                     <label for="#">Setor de origem</label>
                                     <select name="nomeDepartamentoOrigem" id="inputNomeDepartamentoOrigem">
+                                        <option selected disabled value="">Selecione</option>
                                         <option th:each="nome : ${departamento}"
-                                        th:text="${nome.nome}"
+                                                th:text="${nome.nome}"
+                                                th:value="${nome.id}"
+                                                th:selected= "${protocolos.nomeDepartamentoOrigem != null and protocolos.nomeDepartamentoOrigem.nome == nome.nome} ? true : false"
                                         >...</option>
                                     </select>
                                 </div>
@@ -80,7 +83,11 @@
                                     <label for="#">Setor de destino</label>
                                     <select id="inputDepartamentoDestino"  name="nomeDepartamentoDestino" required>
                                         <option selected disabled value="">Selecione</option>
-
+                                        <option th:each="nome : ${departamento}"
+                                                th:text="${nome.nome}"
+                                                th:value="${nome.nome}"
+                                                th:selected= "${protocolos.nomeDepartamentoDestino != null and protocolos.nomeDepartamentoDestino.nome == nome.nome} ? true : false"
+                                        >...</option>
                                     </select>
                                 </div>
 

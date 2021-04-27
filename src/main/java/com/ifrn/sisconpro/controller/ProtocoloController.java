@@ -1,6 +1,7 @@
 package com.ifrn.sisconpro.controller;
 
 
+import com.ifrn.sisconpro.model.Contrato;
 import com.ifrn.sisconpro.model.Departamento;
 import com.ifrn.sisconpro.model.Protocolos;
 import com.ifrn.sisconpro.repository.DepartamentoRepository;
@@ -18,6 +19,8 @@ public class ProtocoloController {
 
     @Autowired
     ProtocoloService service;
+
+    @Autowired
     DepartamentoRepository departamentoService;
 
 
@@ -27,24 +30,25 @@ public class ProtocoloController {
     @RequestMapping(value = "/cad-protocolo", method = RequestMethod.GET)
     public ModelAndView listaDepartamento() {
         List<Departamento> departamento = departamentoService.findAll();
-        System.out.println("lista de teste" + departamento);
+        Protocolos protocolos = new Protocolos();
         ModelAndView mv = new ModelAndView("cad-protocolo");
         mv.addObject("departamento",departamento);
+        mv.addObject("protocolos" ,protocolos);
         return mv;
     }
-
-
 //    @GetMapping("/cad-protocolo")
 //    public String exibirForm(Protocolos protocolos){
-//        return "/cad-protocolo";
+//        return "cad-protocolo";
 //    }
 
    @PostMapping("/cad-protocolo")
     public String salvarProtocolo(Protocolos protocolo) {
         //protocolo.setStatus(Integer.parseInt(1));
+
         service.save(protocolo); // Cadastra e atualiza
         return "redirect:/protocolos";
     }
+
 
     // METODO DE LISTAGEM DOS CONTRATOS ------------
     @RequestMapping(value = "/protocolos", method = RequestMethod.GET)
