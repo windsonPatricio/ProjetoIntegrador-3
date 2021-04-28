@@ -40,6 +40,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/bootstrap-5.0/**","/css/**","/img/**","/js/**");
+        web.ignoring().antMatchers("/bootstrap-5.0/**","/css/**","/img/**","/js/**","/contoller/**");
     }
 }

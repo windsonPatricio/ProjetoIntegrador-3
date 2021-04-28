@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.annotation.HttpMethodConstraint;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -44,7 +46,12 @@ public class ProtocoloController {
 
    @PostMapping("/cad-protocolo")
     public String salvarProtocolo(Protocolos protocolo) {
-      //  protocolo.setDataEnvio(LocalDate.now());
+
+        LocalDate localDate = LocalDate.now();
+       Date date1 = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        protocolo.setDataEnvio(date1);
+
+
         service.save(protocolo); // Cadastra e atualiza
         return "redirect:/protocolos";
     }

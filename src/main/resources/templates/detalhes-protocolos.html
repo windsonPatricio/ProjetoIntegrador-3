@@ -88,12 +88,12 @@
 
                                 <div class="group">
                                     <label for="#">Data do envio</label>
-                                    <input type="text" name="dataEnvio" id="inputDataEnvio" th:value="@{#date.format{protocolos.dataEnvio}" placeholder="date" disabled>
+                                    <input type="text" name="dataEnvio" id="inputDataEnvio" th:value="${#date.format{protocolos.dataEnvio}" placeholder="date" disabled>
                                 </div>
 
                                 <div class="group">
                                     <label for="#">Servidor responsável pelo rebimento</label>
-                                    <input type="text" name="" id="inputUsuario" th:value="${#dates.format(protocolos.dataEnvio,'dd/MM/yyyy')}" placeholder="Servidor responsável" disabled>
+                                    <input type="text" name="" id="inputUsuario" th:value="${protocolos.usuario}" placeholder="Servidor responsável" disabled>
                                 </div>
 
                                 <div class="group">
