@@ -80,7 +80,7 @@
                         <td>
 <!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}"  class="btn btn-green no-print" data-bs-toggle="modal" data-bs-target="#exampleModal"title="Visualizar"><i class="fa fa-eye"></i></a>-->
 <!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}" class="btn btn-orange no-print" data-bs-toggle="modal" data-bs-target="#exampleModal1" title="Editar"><i class="fa fa-edit"></i></a>-->
-<!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}"  class="btn btn-red no-print" data-bs-toggle="modal" data-bs-target="#exampleModal2" title="Excluir"><i class="fa fa-trash"></i></a>-->
+                            <span th:if="${usuario.tipoUsuario != null && usuario.matricula == ${#httpServletRequest.remoteUser}}"><a th:href="@{'/usuarios/'}+${usuario.id}"  class="btn btn-red no-print" title="Excluir"><i class="fa fa-trash"></i></a>-->
 
                         </td>
 

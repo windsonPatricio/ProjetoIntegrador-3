@@ -43,5 +43,11 @@ public class LoginController {
         return "cad-usuarios";
     }
 
+    @GetMapping("/usuario/{id}")
+    public String excluirContrato(@PathVariable("id") long id){
+        users.deleteById(id);
+        return "redirect:/usuarios";
+    }
+
 
 }

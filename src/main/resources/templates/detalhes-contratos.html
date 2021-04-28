@@ -61,7 +61,7 @@
                         </div>
                         <div class="painel-body">
 
-                            <form href="/contratos" action="#" class="inline-form" method="post">
+                            <form href="/contratos" action="/contratos" class="inline-form" method="">
                                 <div class="group">
                                     <label for="#">Número de contrato</label>
                                     <input type="text"  th:placeholder="${contrato.numero}" disabled>
@@ -118,7 +118,7 @@
 
                                 <div class="group-btn">
                                     <p>&nbsp;</p>
-                                    <input type="submit" class="btn btn-red" style="width: 40%;" value="Sair">
+                                    <a href="/contratos"  ><button type="button" class="btn btn-red" style="width: 40%;height: 49%;">Sair</button></a>
                                 </div>
 
                             </form>
