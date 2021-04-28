@@ -41,7 +41,7 @@ public class FornecedorController {
 
 
     // EXCLUIR FORNECEDOR ----------------------------------------
-    @GetMapping("/fornecedores/{id}")
+    @GetMapping("/fornecedores/excluir/{id}")
     public String excluirFornecedor(@PathVariable("id") long id){
         service.deleteById(id);
         return "redirect:/fornecedores";
@@ -49,7 +49,7 @@ public class FornecedorController {
 
 
        // EXIBIR DETALHES FORNECEDOR ---------------------------------
-    @RequestMapping(value = "/fornecedores/..{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/fornecedores/exibir/{id}", method = RequestMethod.GET)
     public ModelAndView exibirFornecedor(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView("detalhes-fornecedores");
         Fornecedor fornecedores = service.findById(id);
@@ -57,7 +57,7 @@ public class FornecedorController {
         return mav;
     }
 
-    @GetMapping("fornecedores/.{id}")
+    @GetMapping("fornecedores/editar/{id}")
     public ModelAndView editarForncedor(@PathVariable("id") long id){
         ModelAndView mv = new ModelAndView("/Editar-cad-fornecedores");
         Fornecedor fornecedor = service.findById(id);

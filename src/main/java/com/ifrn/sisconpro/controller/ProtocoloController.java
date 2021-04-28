@@ -69,7 +69,6 @@ public class ProtocoloController {
     public String receberContrato(@PathVariable("id") long id){
         Protocolos prot = service.findById(id);
 
-
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String nome;
         if (principal instanceof UserDetails) {
@@ -79,9 +78,14 @@ public class ProtocoloController {
         }
         prot.setUsuario(nome);
 
+
         if (!prot.getStatus().contains("3")){
             prot.setStatus("1");
             service.save(prot);
+        }else if(prot.getStatus().contains("3") && prot.getUsuario().contains("Admin")){
+            prot.setStatus("2");
+            service.save(prot);
+            prot.setStatus(prot.getStatus());
         }else{
             prot.setStatus(prot.getStatus());
         }
@@ -92,8 +96,6 @@ public class ProtocoloController {
     @GetMapping("/protocolos/cancelar-recebimento/{id}")
     public String cancelarContrato(@PathVariable("id") long id){
         Protocolos prot = service.findById(id);
-        System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        prot.getUsuario();
         prot.setStatus("3");
         service.save(prot);
         return "redirect:/protocolos";

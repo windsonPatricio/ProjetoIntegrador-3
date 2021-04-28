@@ -29,22 +29,23 @@ public class LoginController {
         return mv;
     }
 
-    @PostMapping("/cad-usuarios")
-    public String salvaUsuario(Usuario usuario ) {
-        //protocolo.setStatus(Integer.parseInt(1));
-        usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
-        users.save(usuario); // Cadastra e atualiza
-        return "redirect:/usuarios";
-    }
-    
-
     @GetMapping("/cad-usuarios")
     public String exibirForm(){
         return "cad-usuarios";
     }
 
+    @PostMapping("/cad-usuarios")
+    public String salvaUsuario(Usuario usuario ) {
+//        protocolo.setStatus(Integer.parseInt(1));
+        usuario.setTipoUsuario(Usuario.verificarTipoDeUsuario(usuario.getTipoUsuario()));
+        usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+        users.save(usuario); // Cadastra e atualiza
+        return "redirect:/usuarios";
+    }
+
+
     @GetMapping("/usuario/{id}")
-    public String excluirContrato(@PathVariable("id") long id){
+    public String excluirUsuario(@PathVariable("id") long id){
         users.deleteById(id);
         return "redirect:/usuarios";
     }

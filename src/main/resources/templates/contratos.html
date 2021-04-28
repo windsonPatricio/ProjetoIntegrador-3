@@ -32,7 +32,7 @@
 
 <aside class="sidenav hidden-sm hidden-md no-print" id="nav">
     <div class="list">
-        <a href="/"><i class="fa fa-home"></i> Home</a>
+        <a href="/index"><i class="fa fa-home"></i> Home</a>
         <a href="/contratos"><i class="fa fa-edit"></i> Contratos</a>
         <a href="/protocolos"><i class="fas fa-exchange-alt"></i> Protocolos</a>
         <a href="/departamentos"><i class="fas fa-building"></i> Departamentos</a>
@@ -83,14 +83,14 @@
                         <td>
                             <span th:if="${contrato.status == '1'}"><a href="#" class="btn btn-green"><i class="bg-success"></i> ativo</a></span>
                             <span th:if="${contrato.status == '2'}"><a href="#" class="btn btn-orange"><i class="bg-success"></i> vencido</a></span>
-                            <span th:if="${contrato.status == '3'}"><a href="#" class="btn btn-blue"><i class="bg-success"></i> encerrado</a></span>
-                            <span th:if="${contrato.status == '4'}"><a href="#" class="btn btn-red"><i class="bg-success"></i> cancelado</a></span>
+                            <span th:if="${contrato.status == '4'}"><a href="#" class="btn btn-blue"><i class="bg-success"></i> A vencer</a></span>
+                            <span th:if="${contrato.status == '3'}"><a href="#" class="btn btn-red"><i class="bg-success"></i> cancelado</a></span>
 
                         </td>
                         <td>
                             <a th:href="@{'/contratos/exibir/'}+${contrato.id}"  class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
                             <a th:href="@{'/contratos/editar/'}+${contrato.id}" class="btn btn-orange no-print" title="Editar"><i class="fa fa-edit"></i></a>
-                            <a th:href="@{'/contratos/excluir/'}+${contrato.id}" class="btn btn-red no-print" title="Excluir"><i class="fa fa-trash"></i></a>
+                            <a th:href="@{'/contratos/desativar/'}+${contrato.id}" class="btn btn-red no-print" title="desativar"><i class="fa fa-ban"></i></a>
                         </td>
                     </tr>
                 </table>

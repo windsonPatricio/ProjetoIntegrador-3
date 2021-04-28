@@ -35,7 +35,7 @@
 
     <aside class="sidenav hidden-sm hidden-md" id="nav">
         <div class="list">
-            <a href="/"><i class="fa fa-home"></i> Home</a>
+            <a href="/index"><i class="fa fa-home"></i> Home</a>
             <a href="/contratos"><i class="fa fa-edit"></i> Contratos</a>
             <a href="/protocolos"><i class="fas fa-exchange-alt"></i> Protocolos</a>
             <a href="/departamentos"><i class="fas fa-building"></i> Departamentos</a>
@@ -101,10 +101,10 @@
                         <th>Status</th>
                     </tr>
                     <tr th:each="proto : ${protocolo}">
+                        <td th:text="${proto.numero}"></td>
                         <td th:text="${proto.nomeDepartamentoOrigem}"></td>
                         <td th:text="${proto.nomeDepartamentoDestino}"></td>
-                        <td>Biblioteca</td>
-                        <td th:text="${proto.dataEnvio}"></td>
+                        <td th:text="${#dates.format(proto.dataEnvio,'dd/MM/yyyy')}"></td>
                         <td>
                             <span th:if="${proto.status == '1'}"><a href="#" class="btn btn-green"><i class="bg-success"></i> Recebido</a></span>
                             <span th:if="${proto.status == '2'}"><a href="#" class="btn btn-orange"><i class="bg-success"></i> Aguardando</a></span>
@@ -127,7 +127,7 @@
                   <tr>
                       <th>Número</th>
                       <th>Fornecedor</th>
-                      <th>Departamento</th>
+                      <th>Modalidade</th>
                       <th>Data</th>
                       <th>Status</th>
                   </tr>
@@ -135,13 +135,13 @@
                   <tr th:each="contrato : ${contratoVenc}">
                       <td th:text="${contrato.numero}"></td>
                       <td th:text="${contrato.razaoSocial}"></td>
+                      <td th:text="${contrato.modalidade}"></td>
                       <td th:text="${contrato.dataFimVigencia}"></td>
-                      <td th:text="${contrato.tipoContrato}"></td>
                       <td>
                           <span th:if="${contrato.status == '1'}"><a href="#" class="btn btn-green"><i class="bg-success"></i> ativo</a></span>
-                          <span th:if="${contrato.status == '2'}"><a href="#" class="btn btn-orange"><i class="bg-success"></i> vencido</a></span>
-                          <span th:if="${contrato.status == '3'}"><a href="#" class="btn btn-blue"><i class="bg-success"></i> encerrado</a></span>
-                          <span th:if="${contrato.status == '4'}"><a href="#" class="btn btn-red"><i class="bg-success"></i> cancelado</a></span>
+                          <span th:if="${contrato.status == '2'}"><a href="#" class="btn btn-red"><i class="bg-success"></i> vencido</a></span>
+                          <span th:if="${contrato.status == '4'}"><a href="#" class="btn btn-orange"><i class="bg-success"></i> a vencer</a></span>
+                          <span th:if="${contrato.status == '3'}"><a href="#" class="btn btn-red"><i class="bg-success"></i> cancelado</a></span>
                     </td>
                   </tr>
               </table>

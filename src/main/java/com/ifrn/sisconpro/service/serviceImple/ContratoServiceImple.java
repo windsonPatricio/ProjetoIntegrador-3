@@ -27,8 +27,8 @@ public class ContratoServiceImple implements ContratoService {
     @Autowired
     ContratoRepository repository;
 
-    @Autowired
-    EntityManager manager;
+//    @Autowired
+//    EntityManager manager;
 
 
     @Override

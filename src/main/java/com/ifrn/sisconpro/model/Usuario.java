@@ -28,7 +28,7 @@ public class Usuario implements UserDetails {
     @Column(name = "id", nullable = false)
     private long id;
 
-    @Column(name = "matricula", nullable = false)
+    @Column(name = "matricula", nullable = false, unique = true)
     private String matricula;
 
     @Column(name = "nome", nullable = false)
@@ -80,4 +80,12 @@ public class Usuario implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public static String verificarTipoDeUsuario(String tipo){
+        if(tipo.equals("1")){
+            return "ADMIN";
+        }
+        return "USER";
+    }
+
 }

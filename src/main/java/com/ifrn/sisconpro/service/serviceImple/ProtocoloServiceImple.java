@@ -18,8 +18,8 @@ public class ProtocoloServiceImple implements ProtocoloService {
     @Autowired
     ProtocoloRepository repository;
 
-    @Autowired
-    EntityManager manager;
+//    @Autowired
+//    EntityManager manager;
 
     @Override
     public List<Protocolos> findAll() {

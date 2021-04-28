@@ -31,7 +31,7 @@ public class Contrato{
     @Column(name = "id", nullable = false)
     private long id;
 
-    @Column(name = "numero")
+    @Column(name = "numero", nullable = false, unique = true)
     private String numero;
 
     @Column(name = "cnpj")

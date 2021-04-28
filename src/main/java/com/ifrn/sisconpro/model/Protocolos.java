@@ -27,7 +27,7 @@ public class Protocolos {
     @Column(name = "id", nullable = false)
     private long id;
 
-    @Column(name = "numero", nullable = false)
+    @Column(name = "numero", nullable = false, unique = true)
     private String numero;
 
     @Column(name = "protocoloDepartamentoOrigem")

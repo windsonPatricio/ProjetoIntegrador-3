@@ -31,7 +31,7 @@
 
 <aside class="sidenav hidden-sm hidden-md no-print" id="nav">
     <div class="list">
-        <a href="/"><i class="fa fa-home"></i> Home</a>
+        <a href="/index"><i class="fa fa-home"></i> Home</a>
         <a href="/contratos"><i class="fa fa-edit"></i> Contratos</a>
         <a href="/protocolos"><i class="fas fa-exchange-alt"></i> Protocolos</a>
         <a href="/departamentos"><i class="fas fa-building"></i> Departamentos</a>
@@ -48,7 +48,7 @@
 
         <div class="painel">
             <div class="painel-header">
-                <a href="/cad-protocolo" th:href="@{/cad-protocolo}" class="btn btn-green btn-lg no-print"><i class="fas fa-plus"></i> Adicionar</a>
+                <a href="/cad-protocolo" class="btn btn-green btn-lg no-print"><i class="fas fa-plus"></i> Adicionar</a>
                 <div>
                     <form action="#" method="post" class="hidden-sm no-print">
                         <input type="text" name="search" id="search" placeholder="Procurar...">
@@ -86,7 +86,7 @@
                         <td>
                             <a th:href="@{'/protocolos/'}+${protocolo.id}" class="btn btn-green no-print" title="Receber"><i class="fas fa-check"></i></a>
                             <a th:href="@{'/protocolos/cancelar-recebimento/'}+${protocolo.id}" class="btn btn-red no-print"  title="Cancelar"><i class="fas fa-times"></i></a>
-                            <a th:href="@{'/protocolos/exibir/'}+${protocolo.id}"  class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
+                            <a th:href="@{'/protocolos/exibir/'}+${protocolo.id}"  class="btn btn-orange no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
 
