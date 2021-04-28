@@ -52,50 +52,50 @@
                     <div class="painel">
                         <div class="painel-body">
 
-                            <form  class="inline-form" method="post">
+                            <form action="/cadContratos" class="inline-form" method="POST">
                                 <div class="group">
                                     <label for="#">Número de contrato</label>
-                                    <input type="text" name="numero" id="inputNumero" th:value="${contrato.numero}" placeholder="Número de contrato" required>
+                                    <input type="text" name="numero" id="inputNumero" placeholder="Número de contrato" required>
                                 </div>
                                 <div class="group">
                                     <label for="#">CNPJ do fornecedor</label>
-                                    <input type="text" name="cnpj" id="inputCnpj" th:value="${contrato.cnpj}" onkeypress="$(this).mask('00.000.000/0000-00')" autocomplete="" placeholder="CNPJ" required>
+                                    <input type="text" name="cnpj" id="inputCnpj"  onkeypress="$(this).mask('00.000.000/0000-00')" autocomplete="" placeholder="CNPJ" required>
                                 </div>
 
                                 <div class="group">
                                     <label for="#">Razão social</label>
-                                    <input type="text" name="razaoSocial" id="inputRazaoSocial" th:value="${contrato.razaoSocial}" placeholder="Razão social" required>
+                                    <input type="text" name="razaoSocial" id="inputRazaoSocial" placeholder="Razão social" required>
                                 </div>
                                 <div class="group">
                                     <label for="#">Valor do contrato R$</label>
-                                    <input type="number" name="valorInicial" id="inputValorInicial" th:value="${contrato.valorInicial}" placeholder="Valor" required>
+                                    <input type="number" name="valorInicial" id="inputValorInicial"  placeholder="Valor" required>
                                 </div>
                                 <div class="group">
                                     <label for="#">Data de início</label>
-                                    <input type="date" name="dataInicioVigencia" id="inputDataInicioVigencia" th:value="${contrato.dataInicioVigencia}" placeholder="Data início" required>
+                                    <input type="date" name="dataInicioVigencia" id="inputDataInicioVigencia"  placeholder="Data início" required>
                                 </div>
                                 <div class="group">
                                     <label for="#">Data Final</label>
-                                    <input type="date" name="dataFimVigencia" id="inputDataFimVigencia" th:value="${contrato.dataFimVigencia}" placeholder="Data final" required>
+                                    <input type="date" name="dataFimVigencia" id="inputDataFimVigencia"  placeholder="Data final" required>
                                 </div>
 
                                 <div class="group">
                                     <label for="#">Unidade beneficiada</label>
                                     <select name="unidadeBeneficiaria" id="inputUnidadeBeneficiaria" required>
                                         <option value="">Selecione...</option>
-                                        <option th:selected="${contrato.unidadeBeneficiaria}">Instituicao</option>
-                                        <option th:selected="${contrato.unidadeBeneficiaria}">Governo</option>
-                                        <option th:selected="${contrato.unidadeBeneficiaria}">Privado</option>
-                                        <option th:selected="${contrato.unidadeBeneficiaria}">Outros</option>
+                                        <option value="Instituicao">Instituicao</option>
+                                        <option value="Governo">Governo</option>
+                                        <option value="Privado">Privado</option>
+                                        <option value="Outros">Outros</option>
                                     </select>
                                 </div>
                                 <div class="group">
                                     <label for="#">Modalidade</label>
                                     <select name="modalidade" id="inputModalidade" required>
                                         <option value="">Selecione...</option>
-                                        <option th:selected="${contrato.modalidade}">Carta convite</option>
-                                        <option th:selected="${contrato.modalidade}">Pregão</option>
-                                        <option th:selected="${contrato.modalidade}">Dispensa de licitação</option>
+                                        <option value="Carta Convite">Carta convite</option>
+                                        <option value="Pregao">Pregão</option>
+                                        <option value="Dispensa de Licitacao">Dispensa de licitação</option>
                                     </select>
                                 </div>
 
@@ -103,23 +103,23 @@
                                     <label for="#">Tipo do contrato</label>
                                     <select name="tipoContrato" id="inputTipoContrato" required>
                                         <option value="">Selecione</option>
-                                        <option th:selected="${contrato.tipoContrato}">Obras</option>
-                                        <option th:selected="${contrato.tipoContrato}">Serviços</option>
-                                        <option th:selected="${contrato.tipoContrato}">Fornecimento</option>
-                                        <option th:selected="${contrato.tipoContrato}">Locação de imóvel</option>
+                                        <option value="Obras">Obras</option>
+                                        <option value="Servico">Serviços</option>
+                                        <option value="Fornecimento">Fornecimento</option>
+                                        <option value="Locacao de Imoveis">Locação de imóvel</option>
                                     </select>
                                 </div>
                                 <div class="group">
                                     <label for="#">Objeto do contrato</label>
-                                    <textarea type="text" name="objetoContrato" id="inputObjetoContrato" th:value="${contrato.valorInicial}" required></textarea>
+                                    <textarea type="text" name="objetoContrato" id="inputObjetoContrato" required></textarea>
                                 </div>
                                 <div class="group">
-                                    <label for="exampleFormControlFile1">Anexar documento</label>
-                                    <input type="file" name="arquivo" th:value="${contrato.arquivo} "class="form-control-file" id="exampleFormControlFile1">
+                                    <label for="#">Anexar documento</label>
+                                    <input type="file" name="arquivo"  class="form-control-file" id="exampleFormControlFile1">
                                 </div>
 
                                 <div class="group">
-                                    <input type="hidden" name="status" id="status" th:value="@{1}" placeholder="date">
+                                    <input type="hidden" name="status" id="status" value="1" placeholder="date">
                                 </div>
 
                                 <div class="group-btn">

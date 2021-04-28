@@ -2,7 +2,6 @@ package com.ifrn.sisconpro.controller;
 
 
 import com.ifrn.sisconpro.model.Contrato;
-import com.ifrn.sisconpro.model.QContrato;
 import com.ifrn.sisconpro.service.serviceImple.ContratoServiceImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,21 +41,21 @@ public class ContratoController {
     }
 
 
-    @GetMapping("/cad-contratos")
-   public String exibirForm(Contrato contrato){
-        return "cad-contratos";
+    @GetMapping("/cadContratos")
+   public String exibirForm(){
+        return "cadContratos";
     }
 
-    @PostMapping("/cad-contratos")
+    @PostMapping("/cadContratos")
     public String salvarContrato(Contrato contrato){
-
+        System.out.println(contrato.toString());
         LocalDate data = contrato.converterData(contrato.getDataFimVigencia());
         contrato.setDataConvertida(data);
         if(!contrato.getDataConvertida().isAfter(LocalDate.now())){
             contrato.setStatus("2");
         }
 
-        service.save(contrato); // Cadastra e atualiza
+       service.save(contrato); // Cadastra e atualiza
         return "redirect:/contratos";
     }
 
