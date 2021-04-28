@@ -81,9 +81,9 @@
                         <td th:text="${fornecedores.telefone}"></td>
 
                         <td>
-                            <a th:href="@{'/fornecedores/..'}+${fornecedores.id}" class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
-                            <a th:href="@{'/fornecedores/.'}+${fornecedores.id}" class="btn btn-orange no-print"  title="Editar"><i class="fa fa-edit"></i></a>
-                            <a th:href="@{'/fornecedores/'}+${fornecedores.id}" class="btn btn-red no-print" title="Excluir"><i class="fa fa-trash"></i></a>
+                            <a th:href="@{'/fornecedores/exibir/'}+${fornecedores.id}" class="btn btn-green no-print" title="Visualizar"><i class="fa fa-eye"></i></a>
+                            <a th:href="@{'/fornecedores/editar/'}+${fornecedores.id}" class="btn btn-orange no-print"  title="Editar"><i class="fa fa-edit"></i></a>
+                            <a th:href="@{'/fornecedores/excluir/'}+${fornecedores.id}" class="btn btn-red no-print" title="Excluir"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                  </table>

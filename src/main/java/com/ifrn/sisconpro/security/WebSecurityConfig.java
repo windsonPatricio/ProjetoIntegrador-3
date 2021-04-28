@@ -28,7 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
           http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/login").permitAll()
-                .antMatchers(HttpMethod.POST,"/controller/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/cadContratos").authenticated()
+                  .antMatchers(HttpMethod.POST,"/editar-cad-contratos").authenticated()
                 .anyRequest().authenticated()
                 .and().formLogin()
                         .loginPage("/login")
