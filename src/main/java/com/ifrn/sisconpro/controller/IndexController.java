@@ -23,13 +23,13 @@ public class IndexController {
     @Autowired
     ProtocoloServiceImple servico;
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String getHomePage(){
         return "index";
     }
     
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public ModelAndView listarContratosVencimentoProximo(){
         ModelAndView mv = new ModelAndView("index");
         List<Contrato> contrato = service.findAll();
