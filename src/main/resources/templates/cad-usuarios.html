@@ -58,19 +58,19 @@
                           <form th:action="@{/cad-usuarios}" class="inline-form" method="post">
                             <div class="group">
                                   <label for="#">Matrícula</label>
-                                  <input type="text" name="matricula" id="inputMatricula" th:value="${usuarios.nome}" placeholder="Matrícula" required>
+                                  <input type="text" name="matricula" id="inputMatricula"  placeholder="Matrícula" required>
                             </div>
 
                             <div class="group">
                                 <label for="#">Nome</label>
-                                <input type="text" name="nome" id="inputNome"  th:value="${usuarios.nome}" placeholder="Nome completo" required>
+                                <input type="text" name="nome" id="inputNome"  placeholder="Nome completo" required>
                             </div>
                             <div class="group">
                                 <label for="#">Setor de lotação</label>
-                                <select name="" id="" required>
+                                <select name="setor" id="inputSetor" required>
                                     <option value="">Selecione</option>
-                                    <option value="">SCT</option>
-                                    <option value="">BTC</option>
+                                    <option value="SCT">SCT</option>
+                                    <option value="BTC">BTC</option>
                                 </select>
                             </div>
 
@@ -83,16 +83,16 @@
                             </div>
                             <div class="group">
                                 <label for="#">Telefone</label>
-                                <input type="text" name="telefone" id="inputTelefone" th:value="${usuarios.telefone}"  onkeypress="$(this).mask('84 99999-9999')" placeholder="Telefone" required>
+                                <input type="text" name="telefone" id="inputTelefone"  onkeypress="$(this).mask('84 99999-9999')" placeholder="Telefone" required>
                             </div>
 
                               <div class="group">
                                   <label for="#" class="form-label">Senha</label>
-                                  <input type="password" name="senha" id="inputSenha" th:value="${usuarios.senha}" required>
+                                  <input type="password" name="senha" id="inputSenha"  required>
                               </div>
 
                           <div class="group">
-                               <input type="hidden" name="tipoUsuario" id="tipoUsuario" th:value="@{2}" placeholder="date">
+                               <input type="hidden" name="tipoUsuario" id="tipoUsuario" value="2" placeholder="date">
                           </div>
 
                           <div class="group-btn">

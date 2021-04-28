@@ -36,7 +36,7 @@ public class DepartamentoController {
 
     //
     @GetMapping("/cad-departamentos")
-    public String exibirForm(Departamento departamento){
+    public String exibirForm(){
         return "/cad-departamentos";
     }
 

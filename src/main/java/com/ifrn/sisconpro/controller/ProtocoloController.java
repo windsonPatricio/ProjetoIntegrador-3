@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.annotation.HttpMethodConstraint;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -29,12 +31,9 @@ public class ProtocoloController {
     //METODOS DOS CADASTROS ----------------
     @RequestMapping(value = "/cad-protocolo", method = RequestMethod.GET)
     public ModelAndView listaDepartamento() {
-        List<Departamento> departamentod = departamentoService.findAll();
-        Protocolos protocolos = new Protocolos();
+        List<Departamento> departamento = departamentoService.findAll();
         ModelAndView mv = new ModelAndView("cad-protocolo");
-        mv.addObject("departamentoD",departamentod);
-        mv.addObject("departamentoO",departamentod);
-        mv.addObject("protocolos" ,protocolos);
+        mv.addObject("departamento",departamento);
         return mv;
     }
 //    @GetMapping("/cad-protocolo")
@@ -63,14 +62,14 @@ public class ProtocoloController {
         if (prot.getStatus() !="3"){
             prot.setStatus("1");
         }
-
         service.save(prot);
         return "redirect:/protocolos";
     }
 
-    @GetMapping("/protocolos/.{id}")
-    public String cancelarContrato(@PathVariable("id") long id){
+    @GetMapping("/protocolos/cancelar-recebimento/{id}")
+    public String cancelarContrato(@PathVariable("id") long id, HttpSession session){
         Protocolos prot = service.findById(id);
+        prot.getUsuario();
         prot.setStatus("3");
         service.save(prot);
         return "redirect:/protocolos";

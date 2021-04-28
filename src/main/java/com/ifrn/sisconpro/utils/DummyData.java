@@ -16,13 +16,13 @@ import java.util.List;
 @Component
 public class DummyData {
 
-//    @Autowired
-//    UsuarioRepository repository;
-//
-//
-//    @PostConstruct
-//    public void salvarUsuario() {
-//
+    @Autowired
+    UsuarioRepository repository;
+
+
+    @PostConstruct
+    public void salvarUsuario() {
+
 //        List<Usuario> users = new LinkedList<>();
 //
 //        try {
@@ -43,6 +43,6 @@ public class DummyData {
 //            System.out.println(e.getMessage());
 //            ;
 //        }
-//    }
+   }
 }
 

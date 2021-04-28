@@ -8,6 +8,7 @@ import com.ifrn.sisconpro.service.ProtocoloService;
 import com.ifrn.sisconpro.service.UsuarioService;
 import com.ifrn.sisconpro.service.serviceImple.UsuarioServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,7 +23,7 @@ public class LoginController {
     public String login(){return "login";}
 
     @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
-    public ModelAndView getProtocolos() {
+    public ModelAndView getUsuarios() {
         ModelAndView mv = new ModelAndView("usuarios");
         mv.addObject("usersLista", users.findAll());
         return mv;
@@ -31,14 +32,14 @@ public class LoginController {
     @PostMapping("/cad-usuarios")
     public String salvaUsuario(Usuario usuario ) {
         //protocolo.setStatus(Integer.parseInt(1));
-
+        usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         users.save(usuario); // Cadastra e atualiza
         return "redirect:/usuarios";
     }
     
 
     @GetMapping("/cad-usuarios")
-    public String exibirForm(Usuario usuarios){
+    public String exibirForm(){
         return "cad-usuarios";
     }
 

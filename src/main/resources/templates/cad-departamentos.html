@@ -52,38 +52,38 @@
                     <div class="painel">
                         <div class="painel-body">
                            
-                          <form th:action="@{/cad-departamentos}" class="inline-form" method="post">
+                          <form action="" class="inline-form" method="post">
                             <div class="group">
                                   <label for="#">Código</label>
-                                  <input type="text" name="codigo" id="inputCodigo" th:value="${departamento.codigo}" onkeypress="$(this).mask('0000.00-00')" placeholder="Código do departamento">
+                                  <input type="text" name="codigo" id="inputCodigo"  onkeypress="$(this).mask('0000.00-00')" placeholder="Código do departamento">
                             </div>
                             <div class="group">
                                 <label for="#">Nome</label>
-                                <input type="text" name="nome" id="inputNome" th:value="${departamento.nome}" placeholder="Nome do departamento">
+                                <input type="text" name="nome" id="inputNome"  placeholder="Nome do departamento">
                             </div>
 
                             <div class="group">
                                 <label for="#">Sigla</label>
-                                <input type="text" name="sigla" id="inputSigla" th:value="${departamento.sigla}" placeholder="Sigla do departamento">
+                                <input type="text" name="sigla" id="inputSigla"  placeholder="Sigla do departamento">
                             </div>
                             <div class="group">
                                 <label for="#">Responsável pelo departamento</label>
                                 <select name="usuario" id="inputUsuario">
                                     <option value="">Selecione</option>
-                                    <option th:selected="${departamento.usuario}">Fulano</option>
-                                    <option th:selected="${departamento.usuario}">Cicrano</option>
-                                    <option th:selected="${departamento.usuario}">Beltano</option>
+                                    <option value="Fulano">Fulano</option>
+                                    <option value="Cicrano">Cicrano</option>
+                                    <option value="Beltrano">Beltano</option>
                                 </select>
                             </div>
                             
                             <div class="group">
                                 <label for="#">Telefone</label>
-                                <input type="text" name="telefone" id="inputTelefone" th:value="${departamento.telefone}" onkeypress="$(this).mask('84 99999-9999')" placeholder="Telefone">
+                                <input type="text" name="telefone" id="inputTelefone"  onkeypress="$(this).mask('84 99999-9999')" placeholder="Telefone">
                             </div>
 
                             <div class="group">
                                 <label for="#">E-mail</label>
-                                <input type="text" name="email" id="inputEmail" th:value="${departamento.email}" placeholder="E-mail">
+                                <input type="text" name="email" id="inputEmail"  placeholder="E-mail">
                           </div>
                            
                           <div class="group-btn">

@@ -43,7 +43,7 @@ public class Protocolos {
     //   private statusProtocolo status;
     //   private tipoConteudo identificacao;
 
-    @Column(name = "usuario", nullable = false)
+    @Column(name = "usuario")
     private String usuario;
 
     @Column(name = "assunto", nullable = false)

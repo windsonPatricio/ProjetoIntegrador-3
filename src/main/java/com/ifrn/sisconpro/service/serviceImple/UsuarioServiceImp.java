@@ -26,7 +26,7 @@ public class UsuarioServiceImp implements UsuarioService {
 
     @Override
     public Usuario findByMatricula(String matircula) {
-        return null;
+        return repository.findByMatricula(matircula);
     }
 
     @Override

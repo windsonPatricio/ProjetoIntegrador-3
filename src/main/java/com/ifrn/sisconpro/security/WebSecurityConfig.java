@@ -20,13 +20,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/login").permitAll()
+        http.csrf().disable().authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/login").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin()
                         .loginPage("/login")
                         .defaultSuccessUrl("/index", true)
                         .permitAll()
+
                 .and().logout()
                         .logoutSuccessUrl("/login");
     }

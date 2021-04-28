@@ -56,26 +56,25 @@
                             <form th:action="@{/cad-protocolo}" class="inline-form" method="post">
                                 <div class="group">
                                     <label for="#">Número de protocolo</label>
-                                    <input type="text" name="numero" id="inputNumero" th:value="${protocolos.numero}" onkeypress="$(this).mask('0000.00-00')" placeholder="Número de protocolo">
+                                    <input type="text" name="numero" id="inputNumero" onkeypress="$(this).mask('0000.00-00')" placeholder="Número de protocolo" required>
                                 </div>
                                 <div class="group">
                                     <label for="#">Assunto</label>
-                                    <select name="assunto" id="inputAssunto">
+                                    <select name="assunto" id="inputAssunto" required>
                                         <option value="">Selecione</option>
-                                        <option th:selected="${protocolos.assunto}">Atestado médico</option>
-                                        <option th:selected="${protocolos.assunto}">Memorando</option>
-                                        <option th:selected="${protocolos.assunto}">Relátorios</option>
-                                        <option th:selected="${protocolos.assunto}">Diversos</option>
+                                        <option value="Atestado Medico">Atestado médico</option>
+                                        <option value="Memorando">Memorando</option>
+                                        <option value="Documentos">Documentos</option>
+                                        <option value="Relatorios">Relatorios</option>
+                                        <option value="Diversos">Diversos</option>
                                     </select>
                                 </div>
                                 <div class="group">
                                     <label for="#">Setor de origem</label>
-                                    <select name="nomeDepartamentoOrigem" id="inputNomeDepartamentoOrigem">
+                                    <select name="nomeDepartamentoOrigem" id="inputNomeDepartamentoOrigem"required>
                                         <option selected disabled value="">Selecione</option>
-                                        <option th:each="nome : ${departamentoO}"
+                                        <option th:each="nome : ${departamento}"
                                                 th:text="${nome.nome}"
-                                                th:value="${nome.nome}"
-                                                th:selected= "${protocolos.nomeDepartamentoOrigem != null and protocolos.nomeDepartamentoOrigem.nome == nome.nome} ? true : false"
                                         >...</option>
                                     </select>
                                 </div>
@@ -83,27 +82,25 @@
                                     <label for="#">Setor de destino</label>
                                     <select id="inputDepartamentoDestino"  name="nomeDepartamentoDestino" required>
                                         <option selected disabled value="">Selecione</option>
-                                        <option th:each="nome : ${departamentoD}"
+                                        <option th:each="nome : ${departamento}"
                                                 th:text="${nome.nome}"
-                                                th:value="${nome.nome}"
-                                                th:selected= "${protocolos.nomeDepartamentoDestino != null and protocolos.nomeDepartamentoDestino.nome == nome.nome} ? true : false"
                                         >...</option>
                                     </select>
                                 </div>
 
                                 <div class="group">
                                     <label for="#">Data do envio</label>
-                                    <input type="date" name="dataEnvio" id="inputDataEnvio" th:value="${protocolos.dataEnvio}" placeholder="date">
+                                    <input type="date" name="dataEnvio" id="inputDataEnvio" placeholder="date">
                                 </div>
 
                                 <div class="group">
                                     <label for="#">Servidor responsável pelo rebimento</label>
-                                    <input type="text" name="usuario" id="inputUsuario" th:value="${protocolos.usuario}" placeholder="Servidor responsável">
+                                    <input type="text" name="usuario" id="inputUsuario" placeholder="Servidor responsável" disabled>
                                 </div>
 
                                 <div class="group">
                                     <label for="#">Assunto detalhado</label>
-                                    <textarea type="text" name="assuntoDetalhes" id="inputAssuntoDetalhes" th:value="${protocolos.assuntoDetalhes}" required></textarea>
+                                    <textarea type="text" name="assuntoDetalhes" id="inputAssuntoDetalhes" required></textarea>
                                 </div>
 
                                 <div class="group">
@@ -111,7 +108,7 @@
                                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                 </div>
                                 <div class="group">
-                                    <input type="hidden" name="status" id="status" th:value="@{2}" placeholder="date">
+                                    <input type="hidden" name="status" id="status" value="2" placeholder="date">
                                 </div>
 
                                 <div class="group-btn">
