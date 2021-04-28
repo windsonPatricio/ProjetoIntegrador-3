@@ -88,7 +88,7 @@
 
                                 <div class="group">
                                     <label for="#">Data do envio</label>
-                                    <input type="text" name="dataEnvio" id="inputDataEnvio" th:value="${#date.format{protocolos.dataEnvio}" placeholder="date" disabled>
+                                    <input type="text" name="dataEnvio" id="inputDataEnvio" th:value="${#dates.format(protocolos.dataEnvio,'dd/MM/yyyy')}" placeholder="date" disabled>
                                 </div>
 
                                 <div class="group">

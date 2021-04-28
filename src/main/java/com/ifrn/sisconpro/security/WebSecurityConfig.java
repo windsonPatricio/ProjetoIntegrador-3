@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
           http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/login").permitAll()
+                .antMatchers(HttpMethod.POST,"/controller/**").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin()
                         .loginPage("/login")
@@ -40,6 +41,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/bootstrap-5.0/**","/css/**","/img/**","/js/**","/contoller/**");
+        web.ignoring().antMatchers("/bootstrap-5.0/**","/css/**","/img/**","/js/**","contoller/**");
     }
 }
