@@ -61,64 +61,57 @@
                         </div>
                         <div class="painel-body">
 
-                            <form href="/detalhes-protocolos" action="#" class="inline-form" method="post">
+                            <form href="/protocolos" action="" class="inline-form" method="post">
                                 <div class="group">
-                                    <label for="#">Número de contrato</label>
-                                    <input type="text"  th:placeholder="${contrato.numero}" disabled>
+                                    <label for="#">Número de protocolo</label>
+                                    <input type="text" name=" " id="inputNumero" th:value="${protocolos.numero}" onkeypress="$(this).mask('0000.00-00')" placeholder="Número de protocolo" disabled>
                                 </div>
                                 <div class="group">
-                                    <label for="#">CNPJ do fornecedor</label>
-                                    <input type="text"  th:placeholder="${contrato.cnpj}" onkeypress="$(this).mask('00.000.000/0000-00')" autocomplete="" disabled>
-                                </div>
+                                    <label for="#">Assunto</label>
+                                    <select name="assunto" id="inputAssunto" disabled>
+                                        <option th:text="${protocolos.assunto}"e</option>
 
-                                <div class="group">
-                                    <label for="#">Razão social</label>
-                                    <input type="text"  th:placeholder="${contrato.razaoSocial}" disabled>
-                                </div>
-                                <div class="group">
-                                    <label for="#">Valor do contrato R$</label>
-                                    <input type="number" th:placeholder="${contrato.valorInicial}" disabled>
-                                </div>
-                                <div class="group">
-                                    <label for="#">Data de início</label>
-                                    <input th:placeholder="${#dates.format(contrato.dataInicioVigencia, 'dd-MM-yyyy')}" disabled>
-                                </div>
-                                <div class="group">
-                                    <label for="#">Data Final</label>
-                                    <input th:placeholder="${#dates.format(contrato.dataFimVigencia, 'dd-MM-yyyy')}" disabled>
-                                </div>
-
-                                <div class="group">
-                                    <label for="#">Unidade beneficiada</label>
-                                    <select disabled>
-                                        <option th:text="${contrato.unidadeBeneficiaria}"></option>
                                     </select>
                                 </div>
                                 <div class="group">
-                                    <label for="#">Modalidade</label>
-                                    <select name="modalidade" id="inputModalidade" disabled>
-                                        <option th:text="${contrato.modalidade}"></option>
+                                    <label for="#">Setor de origem</label>
+                                    <select name="nomeDepartamentoOrigem" id="inputNomeDepartamentoOrigem" disabled>
+                                        <option th:text="${protocolos.nomeDepartamentoOrigem}">...</option>
+                                    </select>
+                                </div>
+                                <div class="group">
+                                    <label for="#">Setor de destino</label>
+                                    <select id="inputDepartamentoDestino"  name="nomeDepartamentoDestino" disabled>
+                                        <option th:text="${protocolos.nomeDepartamentoDestino}">...</option>
                                     </select>
                                 </div>
 
                                 <div class="group">
-                                    <label for="#">Tipo do contrato</label>
-                                    <select name="tipoContrato" id="inputTipoContrato" disabled>
-                                        <option th:text="${contrato.tipoContrato}"></option>
-                                    </select>
+                                    <label for="#">Data do envio</label>
+                                    <input type="text" name="dataEnvio" id="inputDataEnvio" th:value="${protocolos.dataEnvio}" placeholder="date" disabled>
+                                </div>
+
+                                <div class="group">
+                                    <label for="#">Servidor responsável pelo rebimento</label>
+                                    <input type="text" name="" id="inputUsuario" th:value="${protocolos.usuario}" placeholder="Servidor responsável" disabled>
+                                </div>
+
+                                <div class="group">
+                                    <label for="#">Assunto detalhado</label>
+                                    <textarea type="text" name="assuntoDetalhes" id="inputAssuntoDetalhes" th:text="${protocolos.assuntoDetalhes}" disabled></textarea>
+                                </div>
+
+                                <div class="group">
+
                                 </div>
                                 <div class="group">
-                                    <label for="#">Objeto do contrato</label>
-                                    <textarea type="text" th:placeholder="${contrato.objetoContrato}" disabled></textarea>
+                                    <input type="hidden" name="status" id="status" value="2" placeholder="date">
                                 </div>
-                                <div class="group">
-                                    <label for="exampleFormControlFile1">Anexar documento</label>
-                                    <input th:placeholder="${contrato.arquivo} "class="form-control-file" id="exampleFormControlFile1">
-                                </div>
+
 
                                 <div class="group-btn no-print">
                                     <p>&nbsp;</p>
-                                    <input type="submit" class="btn btn-red" style="width: 40%;" value="Sair">
+                                    <input type="button" action="/protocolos" class="btn btn-red" style="width: 40%;" value="Sair">
                                 </div>
 
                             </form>

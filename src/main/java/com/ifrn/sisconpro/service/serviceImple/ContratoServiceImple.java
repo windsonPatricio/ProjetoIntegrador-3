@@ -56,7 +56,7 @@ public class ContratoServiceImple implements ContratoService {
     @Override
     public Iterable<Contrato> listarContratoProximoVencimento() {
         QContrato qContrato = QContrato.contrato;
-        BooleanExpression contrProxVenc = qContrato.dataConvertida.goe(LocalDate.now());
+        BooleanExpression contrProxVenc = qContrato.dataConvertida.between(LocalDate.now(),LocalDate.now().plusMonths(1L));
                return repository.findAll(contrProxVenc);
     }
 

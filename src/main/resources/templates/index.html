@@ -135,7 +135,7 @@
                   <tr th:each="contrato : ${contratoVenc}">
                       <td th:text="${contrato.numero}"></td>
                       <td th:text="${contrato.razaoSocial}"></td>
-                      <td th:text="${contrato.unidadeBeneficiaria}"></td>
+                      <td th:text="${contrato.dataFimVigencia}"></td>
                       <td th:text="${contrato.tipoContrato}"></td>
                       <td>
                           <span th:if="${contrato.status == '1'}"><a href="#" class="btn btn-green"><i class="bg-success"></i> ativo</a></span>

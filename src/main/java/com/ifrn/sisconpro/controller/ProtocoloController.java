@@ -68,13 +68,15 @@ public class ProtocoloController {
         } else {
             nome = principal.toString();
         }
-
         prot.setUsuario(nome);
 
-        if (prot.getStatus() !="3"){
+        if (!prot.getStatus().contains("3")){
             prot.setStatus("1");
+            service.save(prot);
+        }else{
+            prot.setStatus(prot.getStatus());
         }
-        service.save(prot);
+
         return "redirect:/protocolos";
     }
 
