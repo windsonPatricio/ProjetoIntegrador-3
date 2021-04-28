@@ -52,27 +52,29 @@
                     <div class="painel">
                         <div class="painel-body">
                            
-                          <form action="#" class="inline-form" method="post">
+                          <form action="" class="inline-form" method="post">
                             <div class="group">
                                   <label for="#">Código</label>
-                                  <input type="text" name="codigo" id="inputCodigo" th:value="${fornecedor.codigo}"onkeypress="$(this).mask('0000.00-00')" placeholder="Código do departamento">
+                                  <input type="text" name="codigo" id="inputCodigo" onkeypress="$(this).mask('0000.00-00')" placeholder="Código do departamento">
                             </div>
                             <div class="group">
                                 <label for="#">CNPJ</label>
-                                <input type="text" name="cnpj" id="inputCnpj" th:value="${fornecedor.cnpj}" onkeypress="$(this).mask('00.000.000/0000-00')"  placeholder="CNPJ" required>
+                                <input type="text" name="cnpj" id="inputCnpj"  onkeypress="$(this).mask('00.000.000/0000-00')"  placeholder="CNPJ" required>
                             </div>
 
                             <div class="group">
                                 <label for="#">Razão Social</label>
-                                <input type="text" name="nome" id="inputNome" th:value="${fornecedor.nome}" placeholder="Razão Social" required>
+                                <input type="text" name="nome" id="inputNome"  placeholder="Razão Social" required>
                             </div>
                             <div class="group">
                                 <label for="#">Ramo de Atividade</label>
                                 <select name="ramo" id="ramo" required>
                                     <option value="">Selecione</option>
-                                    <option th:selected="${fornecedor.ramo}">Obras</option>
-                                    <option th:selected="${fornecedor.ramo}">Serviços</option>
-                                    <option th:selected="${fornecedor.ramo}">Fornecimento</option>
+                                    <option value="Obras">Obras</option>
+                                    <option value="Servicos">Serviços</option>
+                                    <option value="Fornecimento">Fornecimento</option>
+                                    <option value="Fornecimento">Fornecimento</option>
+                                    <option value="Alimentos">Alimentos</option>
                                 </select>
                             </div>
                             <div class="group">

@@ -1,13 +1,13 @@
 package com.ifrn.sisconpro.controller;
 
 
-import com.ifrn.sisconpro.model.Contrato;
-import com.ifrn.sisconpro.model.Departamento;
-import com.ifrn.sisconpro.model.Protocolos;
+import com.ifrn.sisconpro.model.*;
 import com.ifrn.sisconpro.repository.DepartamentoRepository;
 import com.ifrn.sisconpro.service.ProtocoloService;
 import com.ifrn.sisconpro.service.serviceImple.DepartamentoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -59,6 +59,18 @@ public class ProtocoloController {
     @GetMapping("/protocolos/{id}")
     public String receberContrato(@PathVariable("id") long id){
         Protocolos prot = service.findById(id);
+
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String nome;
+        if (principal instanceof UserDetails) {
+            nome = ((UserDetails)principal).getUsername();
+        } else {
+            nome = principal.toString();
+        }
+
+        prot.setUsuario(nome);
+
         if (prot.getStatus() !="3"){
             prot.setStatus("1");
         }
@@ -67,11 +79,21 @@ public class ProtocoloController {
     }
 
     @GetMapping("/protocolos/cancelar-recebimento/{id}")
-    public String cancelarContrato(@PathVariable("id") long id, HttpSession session){
+    public String cancelarContrato(@PathVariable("id") long id){
         Protocolos prot = service.findById(id);
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         prot.getUsuario();
         prot.setStatus("3");
         service.save(prot);
         return "redirect:/protocolos";
+    }
+
+    // EXIBIR DETALHES FORNECEDOR ---------------------------------
+    @RequestMapping(value = "/protocolos/exibir/{id}", method = RequestMethod.GET)
+    public ModelAndView exibirDetalhes(@PathVariable("id") long id){
+        ModelAndView mav = new ModelAndView("detalhes-protocolos");
+        Protocolos protocolos = service.findById(id);
+        mav.addObject("protocolos", protocolos);
+        return mav;
     }
 }
