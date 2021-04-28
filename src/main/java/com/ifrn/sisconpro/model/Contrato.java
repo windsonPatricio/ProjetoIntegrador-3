@@ -34,10 +34,6 @@ public class Contrato{
     @Column(name = "numero")
     private String numero;
 
-    @ManyToOne
-    @JoinColumn(name = "idContratoFornecedor")
-    private Fornecedor nomeFornercedor;
-
     @Column(name = "cnpj")
     private String cnpj;
 
@@ -59,8 +55,6 @@ public class Contrato{
     @Column(name = "objetoContrato")
     private String objetoContrato;
 
-
-    //  private contStatus status;
 
     @Column(name = "fonteRecurso")
     private String fonteRecurso;
