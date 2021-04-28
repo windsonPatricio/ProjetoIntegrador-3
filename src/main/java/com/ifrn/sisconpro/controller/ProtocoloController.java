@@ -59,11 +59,10 @@ public class ProtocoloController {
     @GetMapping("/protocolos/{id}")
     public String receberContrato(@PathVariable("id") long id){
         Protocolos prot = service.findById(id);
-        if (prot.getStatus() =="3"|| prot.getStatus() =="2"){
-
-        } else {
+        if (prot.getStatus() !="3"){
             prot.setStatus("1");
         }
+
         service.save(prot);
         return "redirect:/protocolos";
     }

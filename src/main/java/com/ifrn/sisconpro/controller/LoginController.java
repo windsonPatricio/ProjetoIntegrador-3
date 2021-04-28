@@ -16,8 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
     @Autowired
-    UsuarioService users;
-
+    UsuarioServiceImp users;
 
     @RequestMapping("/login")
     public String login(){return "login";}
@@ -36,12 +35,7 @@ public class LoginController {
         users.save(usuario); // Cadastra e atualiza
         return "redirect:/usuarios";
     }
-
-    @GetMapping("/usuarios/.{id}")
-    public String excluirContrato(@PathVariable("id") long id){
-        users.deleteById(id);
-        return "redirect:/usuarios";
-    }
+    
 
     @GetMapping("/cad-usuarios")
     public String exibirForm(Usuario usuarios){

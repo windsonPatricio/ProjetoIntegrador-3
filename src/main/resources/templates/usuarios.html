@@ -29,7 +29,7 @@
         </div>
     </nav>
 
-    <aside class="sidenav hidden-sm hidden-md" id="nav">
+    <aside class="sidenav hidden-sm hidden-md no-print" id="nav">
         <div class="list">
             <a href="/"><i class="fa fa-home"></i> Home</a>
             <a href="/contratos"><i class="fa fa-edit"></i> Contratos</a>
@@ -42,14 +42,15 @@
 
    <main class="content">
       <br>
-    <h1>Usuários</h1><br>
+       <h1 class="no-print">Usuarios</h1><br>
+       <h1 class="only-print">Relatório</h1><br>
       <div class="grid">
           
           <div class="painel">
               <div class="painel-header">
-                <a href="/cad-usuarios" th:href="@{/cad-usuarios}" class="btn btn-green btn-lg"><i class="fas fa-plus"></i> Adicionar</a>
+                <a href="/cad-protocolo" th:href="@{/cad-protocolo}" class="btn btn-green btn-lg"><i class="fas fa-plus"></i> Adicionar</a>
                 <div>
-                    <form action="#" method="post" class="hidden-sm">
+                    <form action="#" method="post" class="hidden-sm no-print">
                         <input type="text" name="search" id="search" placeholder="Procurar...">
                         <i class="fa fa-search"></i>
                     </form>
@@ -69,7 +70,7 @@
                         <th>Tipo</th>
                         <th>Setor</th>
                         <th>Telefone</th>
-                        <th>Ações</th>
+                        <th class="no-print">Ações</th>
                     </tr>
                     <tr th:each="usuario : ${usersLista}">
                         <td th:text="${usuario.matricula}"></td>
@@ -77,9 +78,9 @@
                         <td th:text="${usuario.tipoUsuario}"></td>
                         <td th:text="${usuario.telefone}"></td>
                         <td>
-<!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}"  class="btn btn-green" data-bs-toggle="modal" data-bs-target="#exampleModal"title="Visualizar"><i class="fa fa-eye"></i></a>-->
-<!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}" class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#exampleModal1" title="Editar"><i class="fa fa-edit"></i></a>-->
-<!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}"  class="btn btn-red" data-bs-toggle="modal" data-bs-target="#exampleModal2" title="Excluir"><i class="fa fa-trash"></i></a>-->
+<!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}"  class="btn btn-green no-print" data-bs-toggle="modal" data-bs-target="#exampleModal"title="Visualizar"><i class="fa fa-eye"></i></a>-->
+<!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}" class="btn btn-orange no-print" data-bs-toggle="modal" data-bs-target="#exampleModal1" title="Editar"><i class="fa fa-edit"></i></a>-->
+<!--                            <a th:href="@{'/usuarios/'}+${protocolo.id}"  class="btn btn-red no-print" data-bs-toggle="modal" data-bs-target="#exampleModal2" title="Excluir"><i class="fa fa-trash"></i></a>-->
 
                         </td>
 
