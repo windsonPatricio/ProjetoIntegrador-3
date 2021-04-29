@@ -80,6 +80,18 @@ public class Contrato{
         LocalDate obj = LocalDate.parse(data);
         return obj;
     }
-
+    
+    public String verificarStatusContratos(String status){
+        if(status == "1"){
+            return "ATIVO";
+        }else if(status == "2"){
+            return "ENCERRADO";
+        }else if(status == "3"){
+            return "CANCELADO";
+        }else{
+            return "O Contrato não existe!";
+        }
+    }   
+    
 }
 
