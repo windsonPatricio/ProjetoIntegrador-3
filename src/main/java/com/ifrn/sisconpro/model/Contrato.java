@@ -91,7 +91,16 @@ public class Contrato{
         }else{
             return "O Contrato não existe!";
         }
-    }   
+    }
+    
+    public String verificarVencimentoDoContrato(String dataFimVigencia){
+	
+	    LocalDate ld = this.converterData(dataFimVigencia);
+	    if(ld.isAfter(LocalDate.now())){
+		    return "Vencido";
+	    }
+	    return "Contrato não esta vencido!";
+    }
     
 }
 
