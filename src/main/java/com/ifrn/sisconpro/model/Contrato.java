@@ -97,7 +97,7 @@ public class Contrato{
 	
 	    LocalDate ld = this.converterData(dataFimVigencia);
 	    if(ld.isAfter(LocalDate.now())){
-		    return "Vencido";
+		    return "VENCIDO";
 	    }
 	    return "Contrato não esta vencido!";
     }
